@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://sheamckenziebc.github.io',
   base: '/mastertemplate1',
+  trailingSlash: 'always',
   integrations: [
     tailwind({
       // Minimize CSS bundle size

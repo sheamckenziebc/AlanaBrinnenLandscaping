@@ -1,32 +1,32 @@
-# AI Jamstack Template Configuration
-# This file contains all the key settings that an AI agent should populate
+# Summit Pro Builders - Configuration
+# General contractor serving the Denver metro area
 
 site:
-  title: "Your Business Name"
-  description: "Brief description of your business and services"
+  title: "Summit Pro Builders"
+  description: "Denver's trusted general contractor for kitchen remodels, bathroom renovations, home additions, and whole-home renovations. Licensed, insured, and committed to quality craftsmanship."
   url: "https://sheamckenziebc.github.io/mastertemplate1"
-  author: "Your Name"
-  
+  author: "Summit Pro Builders"
+
 branding:
   logo: "/assets/logo.svg"
-  primaryColor: "#2563eb"
-  secondaryColor: "#1e40af"
+  primaryColor: "#1e3a5f"
+  secondaryColor: "#2563eb"
   accentColor: "#f59e0b"
   fontFamily: "Inter, system-ui, sans-serif"
-  
+
 contact:
-  email: "contact@yourbusiness.com"
-  phone: "+1 (555) 123-4567"
-  address: "123 Main St, Your City, State 12345"
-  businessHours: "Mon-Fri 9AM-5PM"
-  
+  email: "info@summitprobuilders.com"
+  phone: "+1 (720) 555-0193"
+  address: "4821 Pearl St, Suite 200, Boulder, CO 80301"
+  businessHours: "Mon-Fri 7AM-6PM | Sat 8AM-2PM"
+
 social:
-  facebook: ""
+  facebook: "https://facebook.com/summitprobuilders"
   twitter: ""
-  instagram: ""
-  linkedin: ""
+  instagram: "https://instagram.com/summitprobuilders"
+  linkedin: "https://linkedin.com/company/summitprobuilders"
   youtube: ""
-  
+
 features:
   blog: true
   products: true
@@ -35,15 +35,15 @@ features:
   search: false
   comments: false
   analytics: false
-  
+
 integrations:
   formspree_id: "your-formspree-id"
   google_analytics: ""
   map_coordinates:
-    lat: 40.7128
-    lng: -74.0060
-    
+    lat: 39.7392
+    lng: -104.9903
+
 seo:
-  keywords: ["your", "business", "keywords"]
+  keywords: ["general contractor Denver", "home remodeling Colorado", "kitchen remodel Boulder", "bathroom renovation Denver", "home additions", "licensed contractor", "Summit Pro Builders"]
   og_image: "/assets/og-image.svg"
-  twitter_card: "summary_large_image" 
+  twitter_card: "summary_large_image"

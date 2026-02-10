@@ -55,12 +55,12 @@ const currentPath = Astro.url.pathname;
           {config.features.products && (
             <li role="none">
               <a
-                href={`${base}products`}
-                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.includes('/products') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+                href={`${base}services/`}
+                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.includes('/services') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
                 role="menuitem"
-                aria-current={currentPath.includes('/products') ? 'page' : undefined}
+                aria-current={currentPath.includes('/services') ? 'page' : undefined}
               >
-                Products
+                Services
               </a>
             </li>
           )}
@@ -125,11 +125,11 @@ const currentPath = Astro.url.pathname;
         </a>
         {config.features.products && (
           <a
-            href={`${base}products`}
-            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.includes('/products') ? 'text-blue-600 bg-blue-50' : ''}`}
-            aria-current={currentPath.includes('/products') ? 'page' : undefined}
+            href={`${base}services/`}
+            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.includes('/services') ? 'text-blue-600 bg-blue-50' : ''}`}
+            aria-current={currentPath.includes('/services') ? 'page' : undefined}
           >
-            Products
+            Services
           </a>
         )}
         {config.features.blog && (

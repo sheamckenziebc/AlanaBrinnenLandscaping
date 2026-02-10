@@ -28,8 +28,8 @@ pathSegments.forEach((segment, index) => {
   // Handle special cases
   if (segment === 'blog' && index < pathSegments.length - 1) {
     name = 'Blog';
-  } else if (segment === 'products' && index < pathSegments.length - 1) {
-    name = 'Products';
+  } else if (segment === 'services' && index < pathSegments.length - 1) {
+    name = 'Services';
   }
 
   breadcrumbs.push({ name, href: currentHref });
