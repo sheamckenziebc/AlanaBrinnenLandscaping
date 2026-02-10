@@ -169,29 +169,29 @@ const faqs = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+        <div class="animate-on-scroll p-6 bg-gray-50 rounded-2xl border border-gray-100">
           <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Mobile-First</h3>
           <p class="text-sm text-gray-600">70% of your customers find you on their phone. Every site looks perfect on mobile, tablet, and desktop.</p>
         </div>
-        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="animate-on-scroll p-6 bg-gray-50 rounded-2xl border border-gray-100">
           <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Blazing Fast</h3>
           <p class="text-sm text-gray-600">Sub-1-second load times. No bloated page builders. Static HTML that scores 90+ on Google PageSpeed.</p>
         </div>
-        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="animate-on-scroll p-6 bg-gray-50 rounded-2xl border border-gray-100">
           <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">SEO Built In</h3>
           <p class="text-sm text-gray-600">Schema markup, meta tags, sitemaps, and structured data so Google knows exactly what you do and where.</p>
         </div>
-        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="animate-on-scroll p-6 bg-gray-50 rounded-2xl border border-gray-100">
           <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </div>
@@ -231,9 +231,9 @@ const faqs = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto stagger-children">
         {templates.map((template) => (
-          <div class={`relative rounded-2xl border-2 p-8 ${template.popular ? 'border-amber-400 shadow-xl scale-105 bg-white' : 'border-gray-200 bg-white'}`}>
+          <div class={`animate-on-scroll relative rounded-2xl border-2 p-8 ${template.popular ? 'border-amber-400 shadow-xl scale-105 bg-white' : 'border-gray-200 bg-white'}`}>
             {template.popular && (
               <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-900 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full">
                 Most Popular
@@ -290,28 +290,28 @@ const faqs = [
         </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <a href={base} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto stagger-children">
+        <a href={base} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Home Page</span>
           <span class="block text-xs text-gray-400 mt-1">Hero + Trust Bar + CTAs</span>
         </a>
-        <a href={`${base}services/`} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+        <a href={`${base}services/`} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Services</span>
           <span class="block text-xs text-gray-400 mt-1">Cards + Process Steps</span>
         </a>
-        <a href={`${base}about/`} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+        <a href={`${base}about/`} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">About</span>
           <span class="block text-xs text-gray-400 mt-1">Story + Team + Values</span>
         </a>
-        <a href={`${base}contact/`} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+        <a href={`${base}contact/`} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Contact</span>
           <span class="block text-xs text-gray-400 mt-1">Form + Map + Info</span>
         </a>
-        <a href={`${base}blog/`} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+        <a href={`${base}blog/`} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Blog</span>
           <span class="block text-xs text-gray-400 mt-1">Article Cards + Newsletter</span>
         </a>
-        <a href={`${base}faq/`} class="group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
+        <a href={`${base}faq/`} class="animate-on-scroll group p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center">
           <span class="text-sm font-semibold text-gray-900 group-hover:text-blue-600">FAQ</span>
           <span class="block text-xs text-gray-400 mt-1">Accordion + Schema</span>
         </a>
