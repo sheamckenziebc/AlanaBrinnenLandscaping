@@ -273,6 +273,15 @@ const jsonLd = JSON.stringify(jsonLdObj);
     <slot name="footer" />
   </footer>
 
+  <!-- Back to Top Button -->
+  <button
+    id="back-to-top"
+    class="fixed bottom-20 md:bottom-8 right-4 z-30 w-11 h-11 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5"
+    aria-label="Back to top"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
   <!-- Mobile Sticky CTA Bar -->
   <div class="mobile-cta-bar" id="mobile-cta" role="complementary" aria-label="Quick actions">
     <a
@@ -309,19 +318,34 @@ const jsonLd = JSON.stringify(jsonLdObj);
       observer.observe(el);
     });
 
-    // Mobile CTA bar: show after scrolling past hero
+    // Mobile CTA bar + Back to Top: show after scrolling past hero
     const mobileCta = document.getElementById('mobile-cta');
-    if (mobileCta) {
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (mobileCta) {
         if (scrollY > 400) {
           mobileCta.classList.add('visible');
         } else {
           mobileCta.classList.remove('visible');
         }
-        lastScroll = scrollY;
-      }, { passive: true });
+      }
+      if (backToTop) {
+        if (scrollY > 600) {
+          backToTop.style.opacity = '1';
+          backToTop.style.pointerEvents = 'auto';
+        } else {
+          backToTop.style.opacity = '0';
+          backToTop.style.pointerEvents = 'none';
+        }
+      }
+    }, { passive: true });
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
 
     // Counter animation for stat numbers
