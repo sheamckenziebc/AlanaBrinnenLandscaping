@@ -9,6 +9,8 @@ import yaml from 'js-yaml';
 // Load configuration
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={config.site.title} description={config.site.description}>
@@ -25,15 +27,15 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
           {config.site.description}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="/contact" 
+          <a
+            href={`${base}contact`}
             class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Get Started
           </a>
           {config.features.products && (
-            <a 
-              href="/products" 
+            <a
+              href={`${base}products`}
               class="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
             >
               View Products
@@ -113,8 +115,8 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
           <p class="text-lg text-gray-600 mb-8">
             Our mission is to build lasting relationships with our clients by consistently delivering value and maintaining the highest standards of professionalism.
           </p>
-          <a 
-            href="/about" 
+          <a
+            href={`${base}about`}
             class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
           >
             Learn more about us
@@ -125,7 +127,7 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
         </div>
         <div class="relative">
           <img 
-            src="/assets/hero-image.jpg" 
+            src={`${base}assets/hero-image.svg`} 
             alt="About us"
             class="rounded-lg shadow-lg w-full h-80 object-cover"
             loading="lazy"
@@ -232,8 +234,8 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
         Contact us today to learn more about how we can help you achieve your goals.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href="/contact" 
+        <a
+          href={`${base}contact`}
           class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
         >
           Contact Us
