@@ -229,41 +229,73 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Mobile menu toggle with smooth animation
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = mobileMenuButton?.querySelector('.menu-icon');
-  const closeIcon = mobileMenuButton?.querySelector('.close-icon');
+  function initHeader() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuButton?.querySelector('.menu-icon');
+    const closeIcon = mobileMenuButton?.querySelector('.close-icon');
 
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+    function closeMenu() {
+      if (!mobileMenuButton || !mobileMenu) return;
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      mobileMenu.style.maxHeight = '0';
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
 
-      if (isExpanded) {
-        mobileMenu.style.maxHeight = '0';
-        menuIcon?.classList.remove('hidden');
-        closeIcon?.classList.add('hidden');
-      } else {
-        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-        menuIcon?.classList.add('hidden');
-        closeIcon?.classList.remove('hidden');
-      }
-    });
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+
+        if (isExpanded) {
+          closeMenu();
+        } else {
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+          menuIcon?.classList.add('hidden');
+          closeIcon?.classList.remove('hidden');
+        }
+      });
+
+      // Close menu on outside click
+      document.addEventListener('click', (e) => {
+        if (mobileMenuButton.getAttribute('aria-expanded') === 'true'
+            && !mobileMenu.contains(e.target as Node)
+            && !mobileMenuButton.contains(e.target as Node)) {
+          closeMenu();
+        }
+      });
+
+      // Close menu on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenuButton.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+          mobileMenuButton.focus();
+        }
+      });
+
+      // Close menu when a nav link is clicked
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+
+    // Header shrink on scroll
+    const header = document.getElementById('site-header');
+    const topBar = document.getElementById('top-bar');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          header.classList.add('shadow-md');
+          topBar?.classList.add('hidden');
+        } else {
+          header.classList.remove('shadow-md');
+          topBar?.classList.remove('hidden');
+        }
+      }, { passive: true });
+    }
   }
 
-  // Header shrink on scroll
-  const header = document.getElementById('site-header');
-  const topBar = document.getElementById('top-bar');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
-        header.classList.add('shadow-md');
-        topBar?.classList.add('hidden');
-      } else {
-        header.classList.remove('shadow-md');
-        topBar?.classList.remove('hidden');
-      }
-    }, { passive: true });
-  }
+  // Re-init on View Transitions navigation
+  document.addEventListener('astro:page-load', initHeader);
 </script>
