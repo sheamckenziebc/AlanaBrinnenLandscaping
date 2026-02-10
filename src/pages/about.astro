@@ -202,6 +202,30 @@ const aboutJsonLd = JSON.stringify(aboutObj);
     </div>
   </section>
 
+  <!-- Service Area -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 animate-on-scroll">
+        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Where We Work</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+          Serving the Denver <span class="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">Metro Area</span>
+        </h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">From Boulder to Castle Rock, we bring quality craftsmanship to communities across the Front Range.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 animate-on-scroll">
+        {["Denver", "Boulder", "Lakewood", "Highlands Ranch", "Arvada", "Golden", "Littleton", "Aurora", "Parker", "Castle Rock"].map((city) => (
+          <div class="flex items-center gap-2 bg-white rounded-xl px-4 py-3 border border-gray-200">
+            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span class="text-sm font-medium text-gray-700">{city}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-gray-400 mt-6 animate-on-scroll">Don't see your area? <a href={`${base}contact/`} class="text-blue-600 hover:underline">Contact us</a> — we may still be able to help.</p>
+    </div>
+  </section>
+
   <!-- Call to Action -->
   <section class="relative py-20 bg-gradient-to-br from-blue-700 to-blue-900 overflow-hidden">
     <div class="absolute inset-0 opacity-10">

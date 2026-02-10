@@ -80,9 +80,24 @@ const faqJsonLd = JSON.stringify(faqObj);
   <!-- FAQ Accordion -->
   <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-4 stagger-children">
+      <!-- Search Filter -->
+      <div class="mb-8 animate-on-scroll">
+        <div class="relative">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input
+            type="text"
+            id="faq-search"
+            placeholder="Search questions..."
+            class="w-full pl-12 pr-4 py-3.5 border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            autocomplete="off"
+          />
+        </div>
+        <p id="faq-count" class="text-sm text-gray-400 mt-2 hidden"></p>
+      </div>
+
+      <div class="space-y-4 stagger-children" id="faq-list">
         {faqs.map((faq, index) => (
-          <details class="animate-on-scroll group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" open={index === 0}>
+          <details class="animate-on-scroll group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden faq-item" data-question={faq.question.toLowerCase()} data-answer={faq.answer.toLowerCase()} open={index === 0}>
             <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-left font-semibold text-gray-900 hover:text-blue-600 transition-colors list-none [&::-webkit-details-marker]:hidden">
               <span class="pr-4">{faq.question}</span>
               <svg class="w-5 h-5 text-gray-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,8 +110,51 @@ const faqJsonLd = JSON.stringify(faqObj);
           </details>
         ))}
       </div>
+
+      <!-- No results message -->
+      <div id="faq-no-results" class="hidden text-center py-12">
+        <svg class="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <p class="text-gray-500 font-medium">No matching questions found</p>
+        <p class="text-gray-400 text-sm mt-1">Try a different search term or <a href={`${base}contact/`} class="text-blue-600 hover:underline">contact us directly</a></p>
+      </div>
     </div>
   </section>
+
+  <!-- FAQ search script -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+      const faqItems = document.querySelectorAll('.faq-item') as NodeListOf<HTMLElement>;
+      const noResults = document.getElementById('faq-no-results');
+      const faqCount = document.getElementById('faq-count');
+      if (!searchInput || !faqItems.length) return;
+
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
+        let visible = 0;
+
+        faqItems.forEach((item) => {
+          const q = item.dataset.question || '';
+          const a = item.dataset.answer || '';
+          const match = !query || q.includes(query) || a.includes(query);
+          item.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+
+        if (noResults) {
+          noResults.classList.toggle('hidden', visible > 0);
+        }
+        if (faqCount) {
+          if (query) {
+            faqCount.textContent = `Showing ${visible} of ${faqItems.length} questions`;
+            faqCount.classList.remove('hidden');
+          } else {
+            faqCount.classList.add('hidden');
+          }
+        }
+      });
+    });
+  </script>
 
   <!-- Still Have Questions CTA -->
   <section class="py-16 bg-gray-50">
