@@ -13,25 +13,16 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
 const base = import.meta.env.BASE_URL;
 
 // Pre-compute JSON-LD for contact page
-const contactJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": config.site.title,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": config.contact.phone,
-      "contactType": "Customer Service",
-      "email": config.contact.email,
-      "availableLanguage": "English"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": config.contact.address
-    }
-  }
-});
+const cContactPt: Record<string, any> = { telephone: config.contact.phone, contactType: "Customer Service", email: config.contact.email, availableLanguage: "English" };
+cContactPt["@type"] = "ContactPoint";
+const cAddr: Record<string, any> = { streetAddress: config.contact.address };
+cAddr["@type"] = "PostalAddress";
+const cMainEntity: Record<string, any> = { name: config.site.title, contactPoint: cContactPt, address: cAddr };
+cMainEntity["@type"] = "Organization";
+const contactObj: Record<string, any> = { mainEntity: cMainEntity };
+contactObj["@context"] = "https://schema.org";
+contactObj["@type"] = "ContactPage";
+const contactJsonLd = JSON.stringify(contactObj);
 
 // Map data for client-side script
 const mapLat = config.integrations.map_coordinates.lat;

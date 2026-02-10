@@ -36,16 +36,15 @@ pathSegments.forEach((segment, index) => {
 });
 
 // Pre-compute JSON-LD for breadcrumbs
-const breadcrumbJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": breadcrumbs.map((crumb, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "name": crumb.name,
-    "item": new URL(crumb.href, Astro.site).href
-  }))
+const bcItems = breadcrumbs.map((crumb, index) => {
+  const item: Record<string, any> = { position: index + 1, name: crumb.name, item: new URL(crumb.href, Astro.site).href };
+  item["@type"] = "ListItem";
+  return item;
 });
+const bcObj: Record<string, any> = { itemListElement: bcItems };
+bcObj["@context"] = "https://schema.org";
+bcObj["@type"] = "BreadcrumbList";
+const breadcrumbJsonLd = JSON.stringify(bcObj);
 ---
 
 {breadcrumbs.length > 1 && (

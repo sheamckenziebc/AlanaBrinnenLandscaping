@@ -27,30 +27,26 @@ const {
 const fullTitle = title === config.site.title ? title : `${title} | ${config.site.title}`;
 
 // Pre-compute JSON-LD data for the script
-const jsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": config.site.title,
-  "description": config.site.description,
-  "url": config.site.url,
-  "logo": new URL(config.branding.logo, Astro.site).href,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": config.contact.phone,
-    "contactType": "Customer Service",
-    "email": config.contact.email
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": config.contact.address
-  },
-  "sameAs": [
-    config.social.facebook,
-    config.social.twitter,
-    config.social.instagram,
-    config.social.linkedin
-  ].filter(Boolean)
-});
+const logoUrl = new URL(config.branding.logo, Astro.site).href;
+const sameAsList = [
+  config.social.facebook,
+  config.social.twitter,
+  config.social.instagram,
+  config.social.linkedin
+].filter(Boolean);
+const jsonLdObj: Record<string, any> = {};
+jsonLdObj["@context"] = "https://schema.org";
+jsonLdObj["@type"] = "Organization";
+jsonLdObj.name = config.site.title;
+jsonLdObj.description = config.site.description;
+jsonLdObj.url = config.site.url;
+jsonLdObj.logo = logoUrl;
+jsonLdObj.contactPoint = { telephone: config.contact.phone, contactType: "Customer Service", email: config.contact.email };
+jsonLdObj.contactPoint["@type"] = "ContactPoint";
+jsonLdObj.address = { streetAddress: config.contact.address };
+jsonLdObj.address["@type"] = "PostalAddress";
+jsonLdObj.sameAs = sameAsList;
+const jsonLd = JSON.stringify(jsonLdObj);
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
