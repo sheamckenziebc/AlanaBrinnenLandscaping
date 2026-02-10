@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  base: '/your-repo-name',
+  site: 'https://sheamckenziebc.github.io',
+  base: '/mastertemplate1',
   integrations: [
     tailwind({
       // Minimize CSS bundle size
