@@ -1,6 +1,10 @@
 ---
 // Generate breadcrumbs from current path
-const currentPath = Astro.url.pathname;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const rawPath = Astro.url.pathname;
+const currentPath = basePath ? rawPath.replace(basePath, '') || '/' : rawPath;
 const pathSegments = currentPath.split('/').filter(segment => segment !== '');
 
 interface Breadcrumb {
@@ -9,25 +13,25 @@ interface Breadcrumb {
 }
 
 const breadcrumbs: Breadcrumb[] = [
-  { name: 'Home', href: '/' }
+  { name: 'Home', href: base }
 ];
 
 // Build breadcrumb trail
-let currentHref = '';
+let currentHref = basePath;
 pathSegments.forEach((segment, index) => {
   currentHref += `/${segment}`;
-  
+
   // Convert segment to readable name
   let name = segment.charAt(0).toUpperCase() + segment.slice(1);
   name = name.replace(/-/g, ' ');
-  
+
   // Handle special cases
   if (segment === 'blog' && index < pathSegments.length - 1) {
     name = 'Blog';
   } else if (segment === 'products' && index < pathSegments.length - 1) {
     name = 'Products';
   }
-  
+
   breadcrumbs.push({ name, href: currentHref });
 });
 ---

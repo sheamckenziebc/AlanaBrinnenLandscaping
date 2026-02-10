@@ -9,6 +9,29 @@ import yaml from 'js-yaml';
 // Load configuration
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": config.site.title,
+    "description": config.site.description,
+    "url": config.site.url,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": config.contact.phone,
+      "contactType": "Customer Service",
+      "email": config.contact.email
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": config.contact.address
+    }
+  }
+};
 ---
 
 <BaseLayout title={`About Us | ${config.site.title}`} description={`Learn more about ${config.site.title} and our commitment to excellence.`}>
@@ -55,7 +78,7 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
         </div>
         <div class="relative">
           <img 
-            src="/assets/about-story.jpg" 
+            src={`${base}assets/about-story.jpg`} 
             alt="Our company story"
             class="rounded-lg shadow-lg w-full h-96 object-cover"
             loading="lazy"
@@ -176,8 +199,8 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
         We'd love to hear about your project and discuss how we can help you achieve your goals.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href="/contact" 
+        <a
+          href={`${base}contact`}
           class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
         >
           Get in Touch
@@ -193,28 +216,7 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
   </section>
 
   <Footer slot="footer" />
+  <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)}></script>
 </BaseLayout>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": config.site.title,
-    "description": config.site.description,
-    "url": config.site.url,
-    "logo": new URL(config.branding.logo, Astro.site).href,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": config.contact.phone,
-      "contactType": "Customer Service",
-      "email": config.contact.email
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": config.contact.address
-    }
-  }
-}
-</script> 
+ 

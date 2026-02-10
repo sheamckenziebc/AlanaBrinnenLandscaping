@@ -8,6 +8,8 @@ const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
 
 const currentYear = new Date().getFullYear();
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 ---
 
 <footer class="bg-gray-900 text-white">
@@ -17,7 +19,7 @@ const currentYear = new Date().getFullYear();
       <div class="md:col-span-2">
         <div class="flex items-center space-x-2 mb-4">
           <img 
-            src={config.branding.logo} 
+            src={`${base}${config.branding.logo.replace(/^\//, '')}`}
             alt={`${config.site.title} logo`}
             class="h-8 w-auto filter brightness-0 invert"
             width="32"
@@ -68,27 +70,27 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="/" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+            <a href={base} class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
           </li>
           <li>
-            <a href="/about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
+            <a href={`${base}about`} class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
           </li>
           {config.features.products && (
             <li>
-              <a href="/products" class="text-gray-300 hover:text-blue-400 transition-colors">Products</a>
+              <a href={`${base}products`} class="text-gray-300 hover:text-blue-400 transition-colors">Products</a>
             </li>
           )}
           {config.features.blog && (
             <li>
-              <a href="/blog" class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a>
+              <a href={`${base}blog`} class="text-gray-300 hover:text-blue-400 transition-colors">Blog</a>
             </li>
           )}
           <li>
-            <a href="/contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+            <a href={`${base}contact`} class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
           </li>
           {config.features.faq && (
             <li>
-              <a href="/faq" class="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a>
+              <a href={`${base}faq`} class="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a>
             </li>
           )}
         </ul>
@@ -158,8 +160,8 @@ const currentYear = new Date().getFullYear();
     <div class="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
       <p>&copy; {currentYear} {config.site.title}. All rights reserved.</p>
       <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="/privacy" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
-        <a href="/terms" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+        <a href={`${base}privacy`} class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+        <a href={`${base}terms`} class="hover:text-blue-400 transition-colors">Terms of Service</a>
       </div>
     </div>
   </div>

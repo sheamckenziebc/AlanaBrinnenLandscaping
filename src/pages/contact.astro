@@ -9,6 +9,27 @@ import yaml from 'js-yaml';
 // Load configuration
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
+
+// Create JSON-LD schema for contact page
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": config.site.title,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": config.contact.phone,
+      "contactType": "Customer Service",
+      "email": config.contact.email,
+      "availableLanguage": "English"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": config.contact.address
+    }
+  }
+};
 ---
 
 <BaseLayout title={`Contact Us | ${config.site.title}`} description={`Get in touch with ${config.site.title}. We're here to help with your needs.`}>
@@ -304,12 +325,14 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
 
 <!-- Leaflet Map Script -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
+<script define:vars={{ 
+  lat: config.integrations.map_coordinates.lat, 
+  lng: config.integrations.map_coordinates.lng,
+  siteName: config.site.title,
+  address: config.contact.address
+}}>
   // Initialize map when page loads
   document.addEventListener('DOMContentLoaded', function() {
-    const lat = {config.integrations.map_coordinates.lat};
-    const lng = {config.integrations.map_coordinates.lng};
-    
     // Create map
     const map = L.map('map').setView([lat, lng], 15);
     
@@ -321,29 +344,9 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
     // Add marker
     L.marker([lat, lng])
       .addTo(map)
-      .bindPopup(`<b>${config.site.title}</b><br>${config.contact.address}`)
+      .bindPopup(`<b>${siteName}</b><br>${address}`)
       .openPopup();
   });
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": config.site.title,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": config.contact.phone,
-      "contactType": "Customer Service",
-      "email": config.contact.email,
-      "availableLanguage": "English"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": config.contact.address
-    }
-  }
-}
-</script> 
+<script type="application/ld+json" set:html={JSON.stringify(contactSchema)}></script> 

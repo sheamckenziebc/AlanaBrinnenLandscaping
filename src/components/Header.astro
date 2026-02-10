@@ -8,7 +8,10 @@ import Breadcrumbs from './Breadcrumbs.astro';
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
 
-const currentPath = Astro.url.pathname;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
+const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' : Astro.url.pathname;
 ---
 
 <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -16,9 +19,9 @@ const currentPath = Astro.url.pathname;
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="/" class="flex items-center space-x-2" aria-label="Home">
+        <a href={base} class="flex items-center space-x-2" aria-label="Home">
           <img 
-            src={config.branding.logo} 
+            src={`${base}${config.branding.logo.replace(/^\//, '')}`}
             alt={`${config.site.title} logo`}
             class="h-8 w-auto"
             width="32"
@@ -32,8 +35,8 @@ const currentPath = Astro.url.pathname;
       <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
         <ul class="flex space-x-8" role="menubar">
           <li role="none">
-            <a 
-              href="/" 
+            <a
+              href={base}
               class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
               aria-current={currentPath === '/' ? 'page' : undefined}
@@ -42,8 +45,8 @@ const currentPath = Astro.url.pathname;
             </a>
           </li>
           <li role="none">
-            <a 
-              href="/about" 
+            <a
+              href={`${base}about`}
               class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/about' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
               aria-current={currentPath === '/about' ? 'page' : undefined}
@@ -53,8 +56,8 @@ const currentPath = Astro.url.pathname;
           </li>
           {config.features.products && (
             <li role="none">
-              <a 
-                href="/products" 
+              <a
+                href={`${base}products`}
                 class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.startsWith('/products') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
                 role="menuitem"
                 aria-current={currentPath.startsWith('/products') ? 'page' : undefined}
@@ -65,8 +68,8 @@ const currentPath = Astro.url.pathname;
           )}
           {config.features.blog && (
             <li role="none">
-              <a 
-                href="/blog" 
+              <a
+                href={`${base}blog`}
                 class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.startsWith('/blog') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
                 role="menuitem"
                 aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
@@ -76,8 +79,8 @@ const currentPath = Astro.url.pathname;
             </li>
           )}
           <li role="none">
-            <a 
-              href="/contact" 
+            <a
+              href={`${base}contact`}
               class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/contact' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
               aria-current={currentPath === '/contact' ? 'page' : undefined}
@@ -108,23 +111,23 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile Navigation -->
     <div class="md:hidden hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-        <a 
-          href="/" 
+        <a
+          href={base}
           class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/' ? 'text-blue-600 bg-blue-50' : ''}`}
           aria-current={currentPath === '/' ? 'page' : undefined}
         >
           Home
         </a>
-        <a 
-          href="/about" 
+        <a
+          href={`${base}about`}
           class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/about' ? 'text-blue-600 bg-blue-50' : ''}`}
           aria-current={currentPath === '/about' ? 'page' : undefined}
         >
           About
         </a>
         {config.features.products && (
-          <a 
-            href="/products" 
+          <a
+            href={`${base}products`}
             class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.startsWith('/products') ? 'text-blue-600 bg-blue-50' : ''}`}
             aria-current={currentPath.startsWith('/products') ? 'page' : undefined}
           >
@@ -132,16 +135,16 @@ const currentPath = Astro.url.pathname;
           </a>
         )}
         {config.features.blog && (
-          <a 
-            href="/blog" 
+          <a
+            href={`${base}blog`}
             class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.startsWith('/blog') ? 'text-blue-600 bg-blue-50' : ''}`}
             aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
           >
             Blog
           </a>
         )}
-        <a 
-          href="/contact" 
+        <a
+          href={`${base}contact`}
           class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/contact' ? 'text-blue-600 bg-blue-50' : ''}`}
           aria-current={currentPath === '/contact' ? 'page' : undefined}
         >
