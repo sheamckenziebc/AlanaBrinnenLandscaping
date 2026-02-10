@@ -294,6 +294,38 @@ const jsonLd = JSON.stringify(jsonLdObj);
         lastScroll = scrollY;
       }, { passive: true });
     }
+
+    // Counter animation for stat numbers
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const target = parseFloat(el.dataset.count || '0');
+            const suffix = el.dataset.suffix || '';
+            const duration = 1500;
+            const start = performance.now();
+            const isDecimal = target % 1 !== 0;
+
+            function animate(now: number) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = eased * target;
+              el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current).toString()) + suffix;
+              if (progress < 1) requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      counterObserver.observe(el);
+    });
   </script>
 </body>
 </html>

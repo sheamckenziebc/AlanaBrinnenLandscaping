@@ -114,6 +114,16 @@ const currentPath = Astro.url.pathname;
           )}
           <li role="none">
             <a
+              href={`${base}templates/`}
+              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/templates') ? 'text-blue-700 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              role="menuitem"
+              aria-current={currentPath.includes('/templates') ? 'page' : undefined}
+            >
+              Templates
+            </a>
+          </li>
+          <li role="none">
+            <a
               href={`${base}contact/`}
               class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-blue-700 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
               role="menuitem"
@@ -190,6 +200,13 @@ const currentPath = Astro.url.pathname;
             Blog
           </a>
         )}
+        <a
+          href={`${base}templates/`}
+          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/templates') ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
+          aria-current={currentPath.includes('/templates') ? 'page' : undefined}
+        >
+          Templates
+        </a>
         <a
           href={`${base}contact/`}
           class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
