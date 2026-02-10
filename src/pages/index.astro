@@ -30,7 +30,7 @@ const base = import.meta.env.BASE_URL;
             Licensed & Insured in Colorado
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-            Build Your Dream Home <span class="text-amber-400">With Confidence</span>
+            Build Your Dream Home <span class="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">With Confidence</span>
           </h1>
           <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-xl leading-relaxed">
             From kitchen remodels to whole-home renovations, Summit Pro Builders delivers expert craftsmanship, transparent pricing, and on-time results for Denver-area homeowners.
@@ -299,6 +299,38 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
   )}
+
+  <!-- Guarantees Section -->
+  <section class="py-16 bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 animate-on-scroll">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Our Promise to You</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">On-Time Guarantee</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">We set a completion date and stick to it. If we miss our deadline, you get a discount. Period.</p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">No Hidden Fees</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Every cost is in writing before work begins. If the scope changes, you approve the cost first.</p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">2-Year Warranty</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Full workmanship warranty on all labor and installation. We stand behind every project we complete.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Call to Action Section -->
   <section class="relative py-20 bg-gradient-to-br from-blue-700 to-blue-900 overflow-hidden">
