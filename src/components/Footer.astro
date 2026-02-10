@@ -7,9 +7,8 @@ import yaml from 'js-yaml';
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
 
+const base = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear();
-const rawBase = import.meta.env.BASE_URL;
-const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 ---
 
 <footer class="bg-gray-900 text-white">
@@ -18,8 +17,8 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
       <!-- Company Info -->
       <div class="md:col-span-2">
         <div class="flex items-center space-x-2 mb-4">
-          <img 
-            src={`${base}${config.branding.logo.replace(/^\//, '')}`}
+          <img
+            src={`${base}assets/logo.svg`}
             alt={`${config.site.title} logo`}
             class="h-8 w-auto filter brightness-0 invert"
             width="32"
@@ -30,7 +29,7 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
         <p class="text-gray-300 mb-4 max-w-md">
           {config.site.description}
         </p>
-        
+
         <!-- Contact Info -->
         <div class="space-y-2 text-sm text-gray-300">
           <div class="flex items-center space-x-2">
@@ -101,9 +100,9 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
         <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
         <div class="flex space-x-4">
           {config.social.facebook && (
-            <a 
-              href={config.social.facebook} 
-              class="text-gray-300 hover:text-blue-400 transition-colors" 
+            <a
+              href={config.social.facebook}
+              class="text-gray-300 hover:text-blue-400 transition-colors"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
@@ -114,9 +113,9 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
             </a>
           )}
           {config.social.twitter && (
-            <a 
-              href={config.social.twitter} 
-              class="text-gray-300 hover:text-blue-400 transition-colors" 
+            <a
+              href={config.social.twitter}
+              class="text-gray-300 hover:text-blue-400 transition-colors"
               aria-label="Twitter"
               target="_blank"
               rel="noopener noreferrer"
@@ -127,9 +126,9 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
             </a>
           )}
           {config.social.instagram && (
-            <a 
-              href={config.social.instagram} 
-              class="text-gray-300 hover:text-blue-400 transition-colors" 
+            <a
+              href={config.social.instagram}
+              class="text-gray-300 hover:text-blue-400 transition-colors"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -140,9 +139,9 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
             </a>
           )}
           {config.social.linkedin && (
-            <a 
-              href={config.social.linkedin} 
-              class="text-gray-300 hover:text-blue-400 transition-colors" 
+            <a
+              href={config.social.linkedin}
+              class="text-gray-300 hover:text-blue-400 transition-colors"
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
@@ -165,4 +164,4 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
       </div>
     </div>
   </div>
-</footer> 
+</footer>

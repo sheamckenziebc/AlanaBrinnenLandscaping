@@ -8,10 +8,8 @@ import Breadcrumbs from './Breadcrumbs.astro';
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
 
-const rawBase = import.meta.env.BASE_URL;
-const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
-const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
-const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' : Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -20,8 +18,8 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
       <!-- Logo -->
       <div class="flex items-center">
         <a href={base} class="flex items-center space-x-2" aria-label="Home">
-          <img 
-            src={`${base}${config.branding.logo.replace(/^\//, '')}`}
+          <img
+            src={`${base}assets/logo.svg`}
             alt={`${config.site.title} logo`}
             class="h-8 w-auto"
             width="32"
@@ -37,9 +35,9 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
           <li role="none">
             <a
               href={base}
-              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
-              aria-current={currentPath === '/' ? 'page' : undefined}
+              aria-current={currentPath === base || currentPath === base.slice(0, -1) ? 'page' : undefined}
             >
               Home
             </a>
@@ -47,9 +45,9 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
           <li role="none">
             <a
               href={`${base}about`}
-              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/about' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
-              aria-current={currentPath === '/about' ? 'page' : undefined}
+              aria-current={currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'page' : undefined}
             >
               About
             </a>
@@ -58,9 +56,9 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
             <li role="none">
               <a
                 href={`${base}products`}
-                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.startsWith('/products') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.includes('/products') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
                 role="menuitem"
-                aria-current={currentPath.startsWith('/products') ? 'page' : undefined}
+                aria-current={currentPath.includes('/products') ? 'page' : undefined}
               >
                 Products
               </a>
@@ -70,9 +68,9 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
             <li role="none">
               <a
                 href={`${base}blog`}
-                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.startsWith('/blog') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+                class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.includes('/blog') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
                 role="menuitem"
-                aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
+                aria-current={currentPath.includes('/blog') ? 'page' : undefined}
               >
                 Blog
               </a>
@@ -81,9 +79,9 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
           <li role="none">
             <a
               href={`${base}contact`}
-              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath === '/contact' ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
+              class={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               role="menuitem"
-              aria-current={currentPath === '/contact' ? 'page' : undefined}
+              aria-current={currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'page' : undefined}
             >
               Contact
             </a>
@@ -113,23 +111,23 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
         <a
           href={base}
-          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/' ? 'text-blue-600 bg-blue-50' : ''}`}
-          aria-current={currentPath === '/' ? 'page' : undefined}
+          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-blue-600 bg-blue-50' : ''}`}
+          aria-current={currentPath === base || currentPath === base.slice(0, -1) ? 'page' : undefined}
         >
           Home
         </a>
         <a
           href={`${base}about`}
-          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/about' ? 'text-blue-600 bg-blue-50' : ''}`}
-          aria-current={currentPath === '/about' ? 'page' : undefined}
+          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-blue-600 bg-blue-50' : ''}`}
+          aria-current={currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'page' : undefined}
         >
           About
         </a>
         {config.features.products && (
           <a
             href={`${base}products`}
-            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.startsWith('/products') ? 'text-blue-600 bg-blue-50' : ''}`}
-            aria-current={currentPath.startsWith('/products') ? 'page' : undefined}
+            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.includes('/products') ? 'text-blue-600 bg-blue-50' : ''}`}
+            aria-current={currentPath.includes('/products') ? 'page' : undefined}
           >
             Products
           </a>
@@ -137,16 +135,16 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
         {config.features.blog && (
           <a
             href={`${base}blog`}
-            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.startsWith('/blog') ? 'text-blue-600 bg-blue-50' : ''}`}
-            aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}
+            class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.includes('/blog') ? 'text-blue-600 bg-blue-50' : ''}`}
+            aria-current={currentPath.includes('/blog') ? 'page' : undefined}
           >
             Blog
           </a>
         )}
         <a
           href={`${base}contact`}
-          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath === '/contact' ? 'text-blue-600 bg-blue-50' : ''}`}
-          aria-current={currentPath === '/contact' ? 'page' : undefined}
+          class={`block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-blue-600 bg-blue-50' : ''}`}
+          aria-current={currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'page' : undefined}
         >
           Contact
         </a>
@@ -155,14 +153,14 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
   </div>
 
   <!-- Breadcrumbs (for non-home pages) -->
-  {currentPath !== '/' && <Breadcrumbs />}
+  {currentPath !== base && currentPath !== base.slice(0, -1) && <Breadcrumbs />}
 </header>
 
 <script>
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
-  
+
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
@@ -170,4 +168,4 @@ const currentPath = basePath ? Astro.url.pathname.replace(basePath, '') || '/' :
       mobileMenu.classList.toggle('hidden');
     });
   }
-</script> 
+</script>

@@ -8,7 +8,7 @@ site:
   author: "Your Name"
   
 branding:
-  logo: "/assets/logo.png"
+  logo: "/assets/logo.svg"
   primaryColor: "#2563eb"
   secondaryColor: "#1e40af"
   accentColor: "#f59e0b"
@@ -45,5 +45,5 @@ integrations:
     
 seo:
   keywords: ["your", "business", "keywords"]
-  og_image: "/assets/og-image.jpg"
+  og_image: "/assets/og-image.svg"
   twitter_card: "summary_large_image" 

@@ -1,11 +1,11 @@
 ---
 // Generate breadcrumbs from current path
-const rawBase = import.meta.env.BASE_URL;
-const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
-const basePath = base.endsWith('/') ? base.slice(0, -1) : base;
-const rawPath = Astro.url.pathname;
-const currentPath = basePath ? rawPath.replace(basePath, '') || '/' : rawPath;
-const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+// Strip the base path prefix to get the relative path segments
+const relativePath = currentPath.startsWith(base) ? currentPath.slice(base.length) : currentPath;
+const pathSegments = relativePath.split('/').filter(segment => segment !== '');
 
 interface Breadcrumb {
   name: string;
@@ -17,9 +17,9 @@ const breadcrumbs: Breadcrumb[] = [
 ];
 
 // Build breadcrumb trail
-let currentHref = basePath;
+let currentHref = base;
 pathSegments.forEach((segment, index) => {
-  currentHref += `/${segment}`;
+  currentHref += `${segment}/`;
 
   // Convert segment to readable name
   let name = segment.charAt(0).toUpperCase() + segment.slice(1);
@@ -34,6 +34,17 @@ pathSegments.forEach((segment, index) => {
 
   breadcrumbs.push({ name, href: currentHref });
 });
+
+// Pre-compute JSON-LD for breadcrumbs
+const bcItems = breadcrumbs.map((crumb, index) => {
+  const item: Record<string, any> = { position: index + 1, name: crumb.name, item: new URL(crumb.href, Astro.site).href };
+  item["@type"] = "ListItem";
+  return item;
+});
+const bcObj: Record<string, any> = { itemListElement: bcItems };
+bcObj["@context"] = "https://schema.org";
+bcObj["@type"] = "BreadcrumbList";
+const breadcrumbJsonLd = JSON.stringify(bcObj);
 ---
 
 {breadcrumbs.length > 1 && (
@@ -52,8 +63,8 @@ pathSegments.forEach((segment, index) => {
                 {crumb.name}
               </span>
             ) : (
-              <a 
-                href={crumb.href} 
+              <a
+                href={crumb.href}
                 class="hover:text-blue-600 transition-colors"
                 itemprop="item"
               >
@@ -67,19 +78,8 @@ pathSegments.forEach((segment, index) => {
         ))}
       </ol>
     </div>
-    
+
     <!-- JSON-LD for Breadcrumbs -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": breadcrumbs.map((crumb, index) => ({
-          "@type": "ListItem",
-          "position": index + 1,
-          "name": crumb.name,
-          "item": new URL(crumb.href, Astro.site).href
-        }))
-      }
-    </script>
+    <script type="application/ld+json" set:html={breadcrumbJsonLd} />
   </nav>
-)} 
+)}

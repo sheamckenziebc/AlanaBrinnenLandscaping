@@ -7,6 +7,8 @@ import yaml from 'js-yaml';
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
 
+const base = import.meta.env.BASE_URL;
+
 export interface Props {
   title?: string;
   description?: string;
@@ -15,8 +17,8 @@ export interface Props {
   noindex?: boolean;
 }
 
-const { 
-  title = config.site.title, 
+const {
+  title = config.site.title,
   description = config.site.description,
   ogImage = config.seo.og_image,
   canonicalURL = Astro.url.href,
@@ -25,31 +27,27 @@ const {
 
 const fullTitle = title === config.site.title ? title : `${title} | ${config.site.title}`;
 
-// Create JSON-LD schema object
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": config.site.title,
-  "description": config.site.description,
-  "url": config.site.url,
-  "logo": new URL(config.branding.logo, Astro.site).href,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": config.contact.phone,
-    "contactType": "Customer Service",
-    "email": config.contact.email
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": config.contact.address
-  },
-  "sameAs": [
-    config.social.facebook,
-    config.social.twitter,
-    config.social.instagram,
-    config.social.linkedin
-  ].filter(Boolean)
-};
+// Pre-compute JSON-LD data for the script
+const logoUrl = new URL(config.branding.logo, Astro.site).href;
+const sameAsList = [
+  config.social.facebook,
+  config.social.twitter,
+  config.social.instagram,
+  config.social.linkedin
+].filter(Boolean);
+const jsonLdObj: Record<string, any> = {};
+jsonLdObj["@context"] = "https://schema.org";
+jsonLdObj["@type"] = "Organization";
+jsonLdObj.name = config.site.title;
+jsonLdObj.description = config.site.description;
+jsonLdObj.url = config.site.url;
+jsonLdObj.logo = logoUrl;
+jsonLdObj.contactPoint = { telephone: config.contact.phone, contactType: "Customer Service", email: config.contact.email };
+jsonLdObj.contactPoint["@type"] = "ContactPoint";
+jsonLdObj.address = { streetAddress: config.contact.address };
+jsonLdObj.address["@type"] = "PostalAddress";
+jsonLdObj.sameAs = sameAsList;
+const jsonLd = JSON.stringify(jsonLdObj);
 ---
 
 <!DOCTYPE html>
@@ -58,9 +56,9 @@ const schemaOrg = {
   <meta charset="UTF-8" />
   <meta name="description" content={description} />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'}favicon.svg`} />
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   <meta name="generator" content={Astro.generator} />
-  
+
   <!-- SEO Meta Tags -->
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
@@ -68,7 +66,7 @@ const schemaOrg = {
   <meta name="author" content={config.site.author} />
   <link rel="canonical" href={canonicalURL} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
-  
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
@@ -76,19 +74,19 @@ const schemaOrg = {
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
   <meta property="og:site_name" content={config.site.title} />
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content={config.seo.twitter_card} />
   <meta name="twitter:url" content={canonicalURL} />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
-  
+
   <!-- JSON-LD Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)}></script>
-  
+  <script type="application/ld+json" set:html={jsonLd} />
+
   <!-- Critical CSS Variables -->
-  <style define:vars={{ 
+  <style define:vars={{
     primaryColor: config.branding.primaryColor,
     secondaryColor: config.branding.secondaryColor,
     accentColor: config.branding.accentColor,
@@ -100,7 +98,7 @@ const schemaOrg = {
       --color-accent: var(--accentColor);
       --font-family: var(--fontFamily);
     }
-    
+
     /* Critical CSS for faster rendering */
     body {
       font-family: var(--font-family);
@@ -109,7 +107,7 @@ const schemaOrg = {
       margin: 0;
       padding: 0;
     }
-    
+
     /* Skip link for accessibility */
     .skip-link {
       position: absolute;
@@ -121,43 +119,44 @@ const schemaOrg = {
       text-decoration: none;
       z-index: 1000;
     }
-    
+
     .skip-link:focus {
       top: 6px;
     }
   </style>
-  
-  
+
   <!-- Analytics (if enabled) -->
   {config.integrations.google_analytics && (
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${config.integrations.google_analytics}`}></script>
-    <script is:inline define:vars={{ gaId: config.integrations.google_analytics }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', gaId);
-    </script>
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${config.integrations.google_analytics}`}></script>
+      <script set:html={`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${config.integrations.google_analytics}');
+      `} />
+    </>
   )}
 </head>
 
 <body>
   <!-- Skip Navigation Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
+
   <!-- Header -->
   <header>
     <slot name="header" />
   </header>
-  
+
   <!-- Main Content -->
   <main id="main-content">
     <slot />
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <slot name="footer" />
   </footer>
-  
+
 </body>
-</html> 
+</html>

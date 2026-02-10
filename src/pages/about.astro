@@ -9,34 +9,26 @@ import yaml from 'js-yaml';
 // Load configuration
 const configPath = join(process.cwd(), 'config.yaml');
 const config = yaml.load(readFileSync(configPath, 'utf8'));
-const rawBase = import.meta.env.BASE_URL;
-const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
-const aboutSchema = {
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": config.site.title,
-    "description": config.site.description,
-    "url": config.site.url,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": config.contact.phone,
-      "contactType": "Customer Service",
-      "email": config.contact.email
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": config.contact.address
-    }
-  }
-};
+const base = import.meta.env.BASE_URL;
+
+// Pre-compute JSON-LD for about page
+const aboutLogoUrl = new URL(config.branding.logo, Astro.site).href;
+const contactPt: Record<string, any> = { telephone: config.contact.phone, contactType: "Customer Service", email: config.contact.email };
+contactPt["@type"] = "ContactPoint";
+const addr: Record<string, any> = { streetAddress: config.contact.address };
+addr["@type"] = "PostalAddress";
+const mainEntity: Record<string, any> = { name: config.site.title, description: config.site.description, url: config.site.url, logo: aboutLogoUrl, contactPoint: contactPt, address: addr };
+mainEntity["@type"] = "Organization";
+const aboutObj: Record<string, any> = { mainEntity };
+aboutObj["@context"] = "https://schema.org";
+aboutObj["@type"] = "AboutPage";
+const aboutJsonLd = JSON.stringify(aboutObj);
 ---
 
 <BaseLayout title={`About Us | ${config.site.title}`} description={`Learn more about ${config.site.title} and our commitment to excellence.`}>
   <Header slot="header" />
-  
+
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,8 +69,8 @@ const aboutSchema = {
           </div>
         </div>
         <div class="relative">
-          <img 
-            src={`${base}assets/about-story.jpg`} 
+          <img
+            src={`${base}assets/about-story.jpg`}
             alt="Our company story"
             class="rounded-lg shadow-lg w-full h-96 object-cover"
             loading="lazy"
@@ -99,7 +91,7 @@ const aboutSchema = {
           We're driven by core principles that shape everything we do.
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Mission -->
         <div class="text-center p-8 bg-white rounded-lg shadow-sm">
@@ -113,7 +105,7 @@ const aboutSchema = {
             To deliver exceptional value and service that exceeds our customers' expectations while building lasting partnerships based on trust and reliability.
           </p>
         </div>
-        
+
         <!-- Quality -->
         <div class="text-center p-8 bg-white rounded-lg shadow-sm">
           <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -126,7 +118,7 @@ const aboutSchema = {
             We never compromise on quality. Every product and service we deliver meets the highest standards and is backed by our satisfaction guarantee.
           </p>
         </div>
-        
+
         <!-- Innovation -->
         <div class="text-center p-8 bg-white rounded-lg shadow-sm">
           <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -154,7 +146,7 @@ const aboutSchema = {
           The talented individuals who make our company great.
         </p>
       </div>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Team Member 1 -->
         <div class="text-center bg-gray-50 p-8 rounded-lg">
@@ -165,7 +157,7 @@ const aboutSchema = {
             John founded the company with a vision to revolutionize customer service in our industry. With over 15 years of experience, he leads our team with passion and expertise.
           </p>
         </div>
-        
+
         <!-- Team Member 2 -->
         <div class="text-center bg-gray-50 p-8 rounded-lg">
           <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4"></div>
@@ -175,7 +167,7 @@ const aboutSchema = {
             Sarah ensures our operations run smoothly and efficiently. Her attention to detail and organizational skills keep everything on track and our customers happy.
           </p>
         </div>
-        
+
         <!-- Team Member 3 -->
         <div class="text-center bg-gray-50 p-8 rounded-lg">
           <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4"></div>
@@ -205,8 +197,8 @@ const aboutSchema = {
         >
           Get in Touch
         </a>
-        <a 
-          href={`tel:${config.contact.phone}`} 
+        <a
+          href={`tel:${config.contact.phone}`}
           class="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
         >
           Call Us Today
@@ -215,8 +207,8 @@ const aboutSchema = {
     </div>
   </section>
 
-  <Footer slot="footer" />
-  <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)}></script>
-</BaseLayout>
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={aboutJsonLd} />
 
- 
+  <Footer slot="footer" />
+</BaseLayout>
