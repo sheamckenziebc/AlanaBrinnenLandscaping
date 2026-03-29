@@ -13,35 +13,35 @@ const base = import.meta.env.BASE_URL;
 const faqs = [
   {
     question: "What areas do you serve?",
-    answer: "Metta Growing primarily serves Smithers and the surrounding Bulkley Valley communities — including Telkwa, Houston, Burns Lake, Hazelton, and Terrace. Not sure if we cover your area? Get in touch and we'll let you know. We're happy to travel for larger projects."
-  },
-  {
-    question: "When is the best time to start a landscaping project in the Bulkley Valley?",
-    answer: "For most landscaping and garden installation projects, late May through early September is the ideal window in the Smithers area. However, we take bookings year-round and can begin planning your project any time. Hardscaping projects like patios can sometimes start earlier in spring once the ground has thawed. Early spring cleanup and fall closing services are booked from March and September respectively."
+    answer: "Metta Growing is based in Smithers, BC and serves communities throughout the Bulkley Valley including Telkwa, Houston, Burns Lake, Hazelton, and Terrace. Not sure if you're in our area? Just reach out — we're flexible."
   },
   {
     question: "Do you offer free consultations?",
-    answer: "Yes — always. We believe you should have a chance to talk through your vision and get our honest assessment before committing to anything. Alana visits your property, evaluates the space, and discusses what's realistic within your goals and budget. There's no cost and no pressure."
+    answer: "Yes! We always start with a free consultation at your property. We'll walk through your space, discuss your vision, and talk through options. There's no obligation and no pressure."
   },
   {
-    question: "What plants grow best in the Smithers and Bulkley Valley climate?",
-    answer: "The Bulkley Valley sits in USDA Zone 3b–4a, which means cold winters and a short but often intense growing season. Excellent choices include native species like saskatoon berry, red-osier dogwood, and spiraea; hardy perennials like black-eyed Susan, coneflower, and Siberian iris; and tough ornamental grasses. We always recommend plants that are proven performers in our local climate — not catalogue varieties that look great but won't survive our winters."
+    question: "When is the best time to start a landscaping project in Smithers?",
+    answer: "Most outdoor installation work happens between May and September when the ground is workable. Spring is our busiest booking season, so we recommend reaching out in March or April for summer projects. Plant starts are available from late April through July."
   },
   {
-    question: "How do your plant starts work — can I order custom starts?",
-    answer: "Yes! We grow herbs, vegetables, and ornamentals indoors under controlled conditions starting in late winter, so they're ready for transplanting once the risk of frost passes. [List the specific herbs, vegetables, and ornamentals you actually grow and sell — e.g. 'Our inventory typically includes basil, dill, cilantro, tomatoes, peppers, and squash' — only list what you actually offer.] We also accept custom orders — if you want specific varieties or larger quantities for a garden or community plot, contact us early in the season to place your order."
+    question: "What plants grow well in Smithers/Bulkley Valley?",
+    answer: "We're in a Zone 3-4 climate, so we focus on cold-hardy perennials, native species, and tough ornamentals like Siberian iris, hardy roses, ornamental grasses, and sedums. We'll always recommend species that are proven performers in our local conditions."
   },
   {
-    question: "Do you handle commercial properties?",
-    answer: "Absolutely. We provide commercial landscaping services including planter design and installation, seasonal maintenance contracts, and property cleanup for businesses throughout Smithers and the surrounding area. [Optionally: describe the types of commercial clients you work with — e.g. downtown businesses, strata properties, office buildings — and any notable examples you're proud of. Only include specifics you're comfortable sharing publicly.]"
+    question: "How do your plant starts work — can I order custom varieties?",
+    answer: "Absolutely. We start seeds indoors in late winter under grow lights and harden them off before they're available. We typically carry basil, cilantro, dill, tomatoes, peppers, and a rotating selection of ornamentals. Custom orders for specific varieties are welcome — just ask early!"
+  },
+  {
+    question: "Do you take on commercial properties?",
+    answer: "Yes. We work with businesses in Smithers and surrounding communities for planter installation, parking lot landscaping, and ongoing maintenance contracts. Commercial clients get consistent, reliable service on a scheduled basis."
   },
   {
     question: "How do I prepare for a patio installation?",
-    answer: "The main things we need are: clear access to the work area, knowledge of where any underground utilities run (BC One Call can help identify these), and a clear idea of how you want to use the space. We handle all the heavy lifting from there — base excavation, gravel prep, installation, and finishing. We'll walk you through any specific prep requirements during your consultation."
+    answer: "We handle all the prep work — excavation, base compaction, drainage planning. You don't need to do anything special beforehand. We'll walk through the area together during the consultation and flag anything relevant."
   },
   {
     question: "Do you offer ongoing maintenance contracts?",
-    answer: "Yes — for both residential and commercial clients. Ongoing contracts can include regular mowing, seasonal fertilizing, spring and fall cleanups, and planter care. Contracts are flexible and can be customized to your property's needs. Many of our clients appreciate the reliability of a scheduled service rather than booking one-off appointments throughout the season."
+    answer: "Yes, seasonal and annual maintenance contracts are available for both residential and commercial clients. These can include regular mowing, planter upkeep, spring/fall cleanups, and more. Contact us to discuss what works for your property."
   }
 ];
 
@@ -65,124 +65,63 @@ const faqJsonLd = JSON.stringify(faqObj);
   <Header slot="header" />
 
   <!-- PAGE HEADER BAND -->
-  <section class="py-16" style="background-color: #1a2d19;">
+  <section class="py-20" style="background-color: #1a2d19;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="text-sm font-semibold uppercase tracking-widest" style="color: #c8a96e;">Common Questions</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mt-2" style="font-family: 'Playfair Display', serif;">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 mb-4" style="font-family: 'Cormorant Garamond', Georgia, serif;">
         Frequently Asked Questions
       </h1>
-      <div class="mt-4 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
-      <p class="text-green-200 mt-6 max-w-2xl text-lg">
-        Honest answers to the questions we hear most from Bulkley Valley homeowners and property managers.
-      </p>
+      <p class="text-green-200 max-w-2xl text-lg">Honest answers to the questions we hear most from Bulkley Valley homeowners and property managers.</p>
+      <div class="mt-5 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
     </div>
   </section>
+
+  <!-- Wave divider: dark→white -->
+  <div style="background-color: #1a2d19;" class="-mb-1">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0 60L80 48C160 36 320 12 480 6C640 0 800 12 960 18C1120 24 1280 24 1360 24L1440 24V60H1360C1280 60 1120 60 960 60C800 60 640 60 480 60C320 60 160 60 80 60H0Z" fill="white"/>
+    </svg>
+  </div>
 
   <!-- FAQ ACCORDION -->
   <section class="py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- Search -->
-      <div class="mb-8 animate-on-scroll">
-        <div class="relative">
-          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <input
-            type="text"
-            id="faq-search"
-            placeholder="Search questions..."
-            class="w-full pl-12 pr-4 py-3.5 border border-gray-300 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:border-green-600 transition-colors"
-            style="--tw-ring-color: #2d5a27;"
-            autocomplete="off"
-          />
-        </div>
-        <p id="faq-count" class="text-sm text-gray-400 mt-2 hidden"></p>
-      </div>
-
-      <div class="space-y-3 stagger-children" id="faq-list">
+      <div class="space-y-4">
         {faqs.map((faq, index) => (
-          <details
-            class="animate-on-scroll group rounded-2xl border border-gray-200 overflow-hidden faq-item"
-            style="background-color: #f5f0e6;"
-            data-question={faq.question.toLowerCase()}
-            data-answer={faq.answer.toLowerCase()}
-            open={index === 0}
-          >
-            <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-left font-semibold text-gray-900 hover:text-green-700 transition-colors list-none [&::-webkit-details-marker]:hidden">
-              <span class="pr-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">{faq.question}</span>
-              <svg class="w-5 h-5 text-gray-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
+          <details open={index === 0} class="group border border-green-100 rounded-3xl overflow-hidden mb-4">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-green-50 transition-colors [&::-webkit-details-marker]:hidden">
+              <span class="font-semibold text-green-900 pr-4">{faq.question}</span>
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="px-6 pb-6 text-gray-700 leading-relaxed border-t border-gray-200 pt-4 bg-white">
-              {faq.answer}
-            </div>
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-green-100 pt-4">{faq.answer}</div>
           </details>
         ))}
-      </div>
-
-      <!-- No results -->
-      <div id="faq-no-results" class="hidden text-center py-12">
-        <svg class="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <p class="text-gray-500 font-medium">No matching questions found</p>
-        <p class="text-gray-400 text-sm mt-1">Try a different search or <a href={`${base}contact/`} class="text-green-700 hover:underline">contact us directly</a></p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ search script -->
-  <script>
-    document.addEventListener('astro:page-load', () => {
-      const searchInput = document.getElementById('faq-search') as HTMLInputElement;
-      const faqItems = document.querySelectorAll('.faq-item') as NodeListOf<HTMLElement>;
-      const noResults = document.getElementById('faq-no-results');
-      const faqCount = document.getElementById('faq-count');
-      if (!searchInput || !faqItems.length) return;
-
-      searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase().trim();
-        let visible = 0;
-        faqItems.forEach((item) => {
-          const q = item.dataset.question || '';
-          const a = item.dataset.answer || '';
-          const match = !query || q.includes(query) || a.includes(query);
-          item.style.display = match ? '' : 'none';
-          if (match) visible++;
-        });
-        if (noResults) noResults.classList.toggle('hidden', visible > 0);
-        if (faqCount) {
-          if (query) {
-            faqCount.textContent = `Showing ${visible} of ${faqItems.length} questions`;
-            faqCount.classList.remove('hidden');
-          } else {
-            faqCount.classList.add('hidden');
-          }
-        }
-      });
-    });
-  </script>
-
   <!-- Still have questions CTA -->
   <section style="background-color: #f5f0e6;" class="py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
-      <h2 class="text-2xl font-bold text-green-950 mb-4" style="font-family: 'Playfair Display', serif;">Still Have Questions?</h2>
-      <p class="text-gray-700 mb-6">
+      <h3 class="text-3xl font-bold text-green-950 mb-4" style="font-family: 'Cormorant Garamond', Georgia, serif;">Still Have Questions?</h3>
+      <p class="text-gray-700 mb-8">
         We're happy to talk through your project and answer any questions. Reach out by phone or send us a message.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={`${base}contact/`}
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white hover:bg-green-800 transition-colors"
-          style="background-color: #2d5a27;"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+          style="background-color: #c8a96e; color: #1a2d19;"
         >
           Contact Us
         </a>
         <a
-          href={`tel:${config.contact.phone}`}
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold border-2 transition-colors"
+          href="tel:+17053500329"
+          class="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-base border-2 transition-all"
           style="border-color: #2d5a27; color: #2d5a27;"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          {config.contact.phone}
+          Call +1 (705) 350-0329
         </a>
       </div>
     </div>

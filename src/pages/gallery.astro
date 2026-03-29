@@ -11,23 +11,21 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
 const base = import.meta.env.BASE_URL;
 
 const galleryItems = [
-  { src: "7efe9fb6-b906-4cd3-aaa3-6f5d2c5d459f.jpg", caption: "Cobblestone Patio Installation", category: "Hardscaping" },
-  { src: "e155339b-b8c4-4087-aec4-54e41447735a.jpg", caption: "Patio Base Preparation", category: "Hardscaping" },
-  { src: "03ed4bd0-09cf-484a-b671-3ea80d3e7556.jpg", caption: "Commercial Planter — New Installation", category: "Landscaping" },
-  { src: "d7761b7c-b907-4be8-8017-d3e5b741a6b4.jpg", caption: "Commercial Planter — Mixed Shrubs", category: "Landscaping" },
-  { src: "11ce0f1a-bea6-4ca7-8878-f3fb8fef6bd2.jpg", caption: "Established Planter Bed", category: "Landscaping" },
-  { src: "1fea5e40-0f0c-4c8d-990d-6d5ea95886df.jpg", caption: "Ground Cover Installation", category: "Landscaping" },
-  { src: "2f42e893-ff78-49bc-b695-a219c3dd058e.jpg", caption: "Garden Bed Installation", category: "Landscaping" },
-  { src: "61724c2c-39b8-4710-9051-eac0244e211e.jpg", caption: "Seasonal Planter Maintenance", category: "Landscaping" },
-  { src: "da992e23-fc96-4640-89f0-dedd661acfa6.jpg", caption: "Lawn Aeration Service", category: "Maintenance" },
-  { src: "c68acc1a-88f9-4a17-ae51-8a6adbb49e34.jpg", caption: "Yard Cleanup & Debris Removal", category: "Maintenance" },
-  { src: "e3bb3112-bc50-4f9e-bf8d-b79d369c40e3.jpg", caption: "Site Work & Garden Maintenance", category: "Maintenance" },
-  { src: "104d8802-ae55-4c59-83e9-6a8a4e20c064.jpg", caption: "Custom Herb Starts — Basil", category: "Plant Starts" },
-  { src: "adb57937-6079-4847-95a3-8bdd9d6e5fad.jpg", caption: "Fresh Basil Ready for Transplant", category: "Plant Starts" },
-  { src: "e58b601b-8b42-477a-aec7-e58ec80f45ce.jpg", caption: "Indoor Growing Setup", category: "Plant Starts" },
+  { src: "7efe9fb6-b907-4be8-8017-d3e5b741a6b4.jpg", caption: "Cobblestone Patio Installation", category: "hardscaping", categoryLabel: "Hardscaping" },
+  { src: "e155339b-b8c4-4087-aec4-54e41447735a.jpg", caption: "Patio Base Preparation", category: "hardscaping", categoryLabel: "Hardscaping" },
+  { src: "03ed4bd0-09cf-484a-b671-3ea80d3e7556.jpg", caption: "Commercial Planter — New Installation", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "d7761b7c-b907-4be8-8017-d3e5b741a6b4.jpg", caption: "Commercial Planter — Mixed Shrubs", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "11ce0f1a-bea6-4ca7-8878-f3fb8fef6bd2.jpg", caption: "Established Planter Bed", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "1fea5e40-0f0c-4c8d-990d-6d5ea95886df.jpg", caption: "Ground Cover Installation", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "2f42e893-ff78-49bc-b695-a219c3dd058e.jpg", caption: "Garden Bed with Truck", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "61724c2c-39b8-4710-9051-eac0244e211e.jpg", caption: "Seasonal Planter Maintenance", category: "landscaping", categoryLabel: "Landscaping" },
+  { src: "da992e23-fc96-4640-89f0-dedd661acfa6.jpg", caption: "Lawn Aeration Service", category: "maintenance", categoryLabel: "Maintenance" },
+  { src: "c68acc1a-88f9-4a17-ae51-8a6adbb49e34.jpg", caption: "Yard Cleanup & Debris Removal", category: "maintenance", categoryLabel: "Maintenance" },
+  { src: "e3bb3112-bc50-4f9e-bf8d-b79d369c40e3.jpg", caption: "Site Work & Garden Maintenance", category: "maintenance", categoryLabel: "Maintenance" },
+  { src: "104d8802-ae55-4c59-83e9-6a8a4e20c064.jpg", caption: "Custom Herb Starts — Basil", category: "plant-starts", categoryLabel: "Plant Starts" },
+  { src: "adb57937-6079-4847-95a3-8bdd9d6e5fad.jpg", caption: "Fresh Basil Ready for Transplant", category: "plant-starts", categoryLabel: "Plant Starts" },
+  { src: "e58b601b-8b42-477a-aec7-e58ec80f45ce.jpg", caption: "Indoor Growing Setup", category: "plant-starts", categoryLabel: "Plant Starts" },
 ];
-
-const categories = ["All", "Landscaping", "Hardscaping", "Plant Starts", "Maintenance"];
 ---
 
 <BaseLayout
@@ -37,59 +35,55 @@ const categories = ["All", "Landscaping", "Hardscaping", "Plant Starts", "Mainte
   <Header slot="header" />
 
   <!-- PAGE HEADER BAND -->
-  <section class="py-16" style="background-color: #1a2d19;">
+  <section class="py-20" style="background-color: #1a2d19;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="text-sm font-semibold uppercase tracking-widest" style="color: #c8a96e;">Portfolio</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mt-2" style="font-family: 'Playfair Display', serif;">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 mb-4" style="font-family: 'Cormorant Garamond', Georgia, serif;">
         Our Work
       </h1>
-      <div class="mt-4 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
-      <p class="text-green-200 mt-6 max-w-2xl text-lg">
-        Real projects, real results. Browse our portfolio of landscaping, hardscaping, maintenance, and plant starts from across the Bulkley Valley.
-      </p>
+      <p class="text-green-200 max-w-2xl text-lg">Real projects from across the Bulkley Valley</p>
+      <div class="mt-5 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
     </div>
   </section>
 
+  <!-- Wave divider: dark→cream -->
+  <div style="background-color: #1a2d19;" class="-mb-1">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0 60L80 48C160 36 320 12 480 6C640 0 800 12 960 18C1120 24 1280 24 1360 24L1440 24V60H1360C1280 60 1120 60 960 60C800 60 640 60 480 60C320 60 160 60 80 60H0Z" fill="#f5f0e6"/>
+    </svg>
+  </div>
+
   <!-- GALLERY SECTION -->
-  <section class="py-20 bg-white">
+  <section class="py-20" style="background-color: #f5f0e6;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Filter buttons -->
       <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll" id="filter-buttons">
-        {categories.map((cat, i) => (
-          <button
-            data-filter={cat}
-            class={`filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${i === 0 ? 'text-white active-filter' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-            style={i === 0 ? 'background-color: #2d5a27;' : ''}
-          >
-            {cat}
-          </button>
-        ))}
+        <button data-filter="all" class="filter-btn active-filter px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all" style="background-color: #c8a96e; color: #1a2d19;">All</button>
+        <button data-filter="landscaping" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 transition-all">Landscaping</button>
+        <button data-filter="hardscaping" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 transition-all">Hardscaping</button>
+        <button data-filter="plant-starts" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 transition-all">Plant Starts</button>
+        <button data-filter="maintenance" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 transition-all">Maintenance</button>
       </div>
 
       <!-- Gallery grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="gallery-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
         {galleryItems.map((item) => (
           <div
-            class="gallery-item group relative overflow-hidden rounded-2xl shadow-sm border border-gray-100 cursor-pointer"
+            class="group relative rounded-3xl overflow-hidden shadow-sm"
             data-category={item.category}
           >
-            <div class="overflow-hidden" style="height: 280px;">
-              <img
-                src={`${base}assets/${item.src}`}
-                alt={item.caption}
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-              />
-            </div>
-            <!-- Caption overlay on hover -->
-            <div class="absolute inset-0 bg-gradient-to-t from-green-950/80 via-green-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-              <span class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: #c8a96e;">{item.category}</span>
-              <p class="text-white font-semibold text-base">{item.caption}</p>
-            </div>
-            <!-- Always visible category badge -->
-            <div class="absolute top-3 left-3">
-              <span class="text-xs font-semibold px-2.5 py-1 rounded-full text-white" style="background-color: rgba(26,45,25,0.85);">{item.category}</span>
+            <img
+              src={`${base}assets/${item.src}`}
+              alt={item.caption}
+              class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1a2d19]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-widest" style="color: #c8a96e;">{item.categoryLabel}</span>
+                <p class="text-white font-semibold mt-1">{item.caption}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -104,18 +98,18 @@ const categories = ["All", "Landscaping", "Hardscaping", "Plant Starts", "Mainte
   </section>
 
   <!-- CTA -->
-  <section style="background-color: #f5f0e6;" class="py-16">
+  <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
-      <h2 class="text-3xl font-bold text-green-950 mb-4" style="font-family: 'Playfair Display', serif;">
-        Like What You See?
+      <h2 class="text-3xl font-bold text-green-950 mb-4" style="font-family: 'Cormorant Garamond', Georgia, serif;">
+        Like what you see? Let's talk about your project.
       </h2>
       <p class="text-gray-700 text-lg mb-8">
         Let's create something just as beautiful for your property. Book a free consultation and we'll get started.
       </p>
       <a
         href={`${base}contact/`}
-        class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-sm hover:shadow-md"
-        style="background-color: #2d5a27; color: white;"
+        class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-lg transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+        style="background-color: #c8a96e; color: #1a2d19;"
       >
         Get a Free Quote
         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
@@ -126,33 +120,32 @@ const categories = ["All", "Landscaping", "Hardscaping", "Plant Starts", "Mainte
   <!-- Gallery filter script -->
   <script>
     document.addEventListener('astro:page-load', () => {
-      const filterBtns = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
-      const galleryItems = document.querySelectorAll('.gallery-item') as NodeListOf<HTMLElement>;
+      const buttons = document.querySelectorAll('[data-filter]');
+      const items = document.querySelectorAll('[data-category]') as NodeListOf<HTMLElement>;
       const noResults = document.getElementById('gallery-no-results');
 
-      filterBtns.forEach(btn => {
+      buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-          const filter = btn.dataset.filter || 'All';
-
           // Update button styles
-          filterBtns.forEach(b => {
-            b.classList.remove('active-filter', 'text-white');
-            b.style.backgroundColor = '';
-            b.classList.add('bg-gray-100', 'text-gray-600');
+          buttons.forEach(b => {
+            b.classList.remove('active-filter');
+            (b as HTMLElement).style.backgroundColor = '';
+            (b as HTMLElement).style.color = '';
+            b.classList.add('bg-white', 'text-gray-600');
+            b.classList.remove('text-white');
           });
-          btn.classList.add('active-filter', 'text-white');
-          btn.classList.remove('bg-gray-100', 'text-gray-600');
-          btn.style.backgroundColor = '#2d5a27';
+          btn.classList.add('active-filter');
+          btn.classList.remove('bg-white', 'text-gray-600');
+          (btn as HTMLElement).style.backgroundColor = '#c8a96e';
+          (btn as HTMLElement).style.color = '#1a2d19';
 
-          // Filter items
+          const filter = (btn as HTMLElement).dataset.filter || 'all';
           let visible = 0;
-          galleryItems.forEach(item => {
-            const cat = item.dataset.category || '';
-            const show = filter === 'All' || cat === filter;
+          items.forEach(item => {
+            const show = filter === 'all' || item.dataset.category === filter;
             item.style.display = show ? '' : 'none';
             if (show) visible++;
           });
-
           if (noResults) noResults.classList.toggle('hidden', visible > 0);
         });
       });

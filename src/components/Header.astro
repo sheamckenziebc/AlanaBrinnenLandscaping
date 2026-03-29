@@ -17,11 +17,11 @@ const currentPath = Astro.url.pathname;
   <div class="hidden lg:block text-white text-sm" style="background-color: #1a2d19;" id="top-bar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
       <div class="flex items-center gap-6">
-        <a href={`tel:${config.contact.phone}`} class="flex items-center gap-1.5 hover:text-amber-300 transition-colors">
+        <a href={`tel:${config.contact.phone}`} class="flex items-center gap-1.5 hover:text-[#c8a96e] transition-colors">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           {config.contact.phone}
         </a>
-        <a href={`mailto:${config.contact.email}`} class="flex items-center gap-1.5 hover:text-amber-300 transition-colors">
+        <a href={`mailto:${config.contact.email}`} class="flex items-center gap-1.5 hover:text-[#c8a96e] transition-colors">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           {config.contact.email}
         </a>
@@ -32,12 +32,12 @@ const currentPath = Astro.url.pathname;
       </div>
       <div class="flex items-center gap-4">
         {config.social.facebook && (
-          <a href={config.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-amber-300 transition-colors">
+          <a href={config.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-[#c8a96e] transition-colors">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
           </a>
         )}
         {config.social.instagram && (
-          <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-amber-300 transition-colors">
+          <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-[#c8a96e] transition-colors">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
         )}
@@ -58,8 +58,8 @@ const currentPath = Astro.url.pathname;
             height="40"
           />
           <div class="flex flex-col">
-            <span class="text-lg font-extrabold text-green-900 leading-tight" style="font-family: 'Playfair Display', serif;">{config.site.title}</span>
-            <span class="text-[10px] text-green-600 font-medium uppercase tracking-widest hidden sm:block">Smithers, BC</span>
+            <span class="text-lg font-bold text-green-900 leading-tight" style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700;">{config.site.title}</span>
+            <span class="text-[10px] text-green-600 font-medium uppercase tracking-widest hidden sm:block" style="font-variant: small-caps;">Smithers, BC</span>
           </div>
         </a>
       </div>
@@ -70,7 +70,7 @@ const currentPath = Astro.url.pathname;
           <li role="none">
             <a
               href={base}
-              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
               role="menuitem"
               aria-current={currentPath === base || currentPath === base.slice(0, -1) ? 'page' : undefined}
             >
@@ -80,7 +80,7 @@ const currentPath = Astro.url.pathname;
           <li role="none">
             <a
               href={`${base}about/`}
-              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
               role="menuitem"
               aria-current={currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'page' : undefined}
             >
@@ -91,7 +91,7 @@ const currentPath = Astro.url.pathname;
             <li role="none">
               <a
                 href={`${base}services/`}
-                class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/services') ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+                class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath.includes('/services') ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
                 role="menuitem"
                 aria-current={currentPath.includes('/services') ? 'page' : undefined}
               >
@@ -103,7 +103,7 @@ const currentPath = Astro.url.pathname;
             <li role="none">
               <a
                 href={`${base}blog/`}
-                class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/blog') ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+                class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath.includes('/blog') ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
                 role="menuitem"
                 aria-current={currentPath.includes('/blog') ? 'page' : undefined}
               >
@@ -114,7 +114,7 @@ const currentPath = Astro.url.pathname;
           <li role="none">
             <a
               href={`${base}gallery/`}
-              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/gallery') ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath.includes('/gallery') ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
               role="menuitem"
               aria-current={currentPath.includes('/gallery') ? 'page' : undefined}
             >
@@ -124,7 +124,7 @@ const currentPath = Astro.url.pathname;
           <li role="none">
             <a
               href={`${base}contact/`}
-              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-green-700 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              class={`px-4 py-2 text-sm font-medium rounded-full transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-green-800 bg-green-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-full'}`}
               role="menuitem"
               aria-current={currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'page' : undefined}
             >
@@ -135,7 +135,7 @@ const currentPath = Astro.url.pathname;
         <!-- Desktop CTA -->
         <a
           href={`${base}contact/`}
-          class="ml-4 inline-flex items-center px-5 py-2.5 rounded-lg font-bold text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+          class="ml-4 inline-flex items-center px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
           style="background-color: #c8a96e; color: #1a2d19;"
         >
           Free Quote
@@ -149,7 +149,7 @@ const currentPath = Astro.url.pathname;
         </a>
         <button
           type="button"
-          class="text-gray-700 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 p-2 rounded-lg"
+          class="text-gray-700 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 p-2 rounded-full"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="Toggle mobile menu"
@@ -170,14 +170,14 @@ const currentPath = Astro.url.pathname;
       <div class="px-2 pt-2 pb-4 space-y-1 border-t border-gray-100">
         <a
           href={base}
-          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+          class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath === base || currentPath === base.slice(0, -1) ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
           aria-current={currentPath === base || currentPath === base.slice(0, -1) ? 'page' : undefined}
         >
           Home
         </a>
         <a
           href={`${base}about/`}
-          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+          class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
           aria-current={currentPath.endsWith('/about') || currentPath.endsWith('/about/') ? 'page' : undefined}
         >
           About
@@ -185,7 +185,7 @@ const currentPath = Astro.url.pathname;
         {config.features.products && (
           <a
             href={`${base}services/`}
-            class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/services') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+            class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath.includes('/services') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
             aria-current={currentPath.includes('/services') ? 'page' : undefined}
           >
             Services
@@ -194,7 +194,7 @@ const currentPath = Astro.url.pathname;
         {config.features.blog && (
           <a
             href={`${base}blog/`}
-            class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/blog') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+            class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath.includes('/blog') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
             aria-current={currentPath.includes('/blog') ? 'page' : undefined}
           >
             Blog
@@ -202,21 +202,21 @@ const currentPath = Astro.url.pathname;
         )}
         <a
           href={`${base}gallery/`}
-          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/gallery') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+          class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath.includes('/gallery') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
           aria-current={currentPath.includes('/gallery') ? 'page' : undefined}
         >
           Gallery
         </a>
         <a
           href={`${base}contact/`}
-          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
+          class={`block px-4 py-3 text-base font-medium rounded-2xl transition-all ${currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:text-green-700 hover:bg-gray-50'}`}
           aria-current={currentPath.endsWith('/contact') || currentPath.endsWith('/contact/') ? 'page' : undefined}
         >
           Contact
         </a>
         <a
           href={`${base}contact/`}
-          class="block mx-2 mt-3 text-center px-4 py-3 rounded-lg font-bold transition-colors"
+          class="block mx-2 mt-3 text-center px-4 py-3 rounded-full font-bold transition-colors"
           style="background-color: #c8a96e; color: #1a2d19;"
         >
           Get a Free Quote

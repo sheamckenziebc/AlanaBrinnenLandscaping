@@ -1,107 +1,83 @@
-- id: "landscape-installation"
+- id: landscape-installation
   name: "Landscape Installation"
-  description: "Custom garden bed design, soil preparation, plant selection for northern BC climate, and mulching. Transform your property with a professionally installed landscape built to thrive."
-  price: "$500+"
-  image: "/assets/2f42e893-ff78-49bc-b695-a219c3dd058e.jpg"
-  category: "installation"
+  description: "Custom garden bed design, soil preparation, plant selection, and installation using hardy species suited to northern BC's Zone 3-4 climate."
+  price: "From $500"
+  category: "Garden Design"
   featured: true
+  image: "03ed4bd0-09cf-484a-b671-3ea80d3e7556.jpg"
   features:
-    - "Custom garden bed design & layout"
-    - "Soil amendment & preparation"
-    - "Plant selection for Zone 3-4 climate"
-    - "Mulching & weed barrier installation"
-    - "Perennials, shrubs & ornamental grasses"
-  specifications:
-    season: "May–September"
-    deliverables: "Installed garden landscape"
-    turnaround: "Discussed at consultation"
+    - "Custom plant selection for Zone 3-4 climate"
+    - "Soil preparation & amendment"
+    - "Raised beds, borders & feature planting"
+    - "Mulching, edging & cleanup"
+    - "Seasonal planting advice included"
 
-- id: "lawn-care"
+- id: lawn-care
   name: "Lawn Care & Maintenance"
-  description: "Regular mowing, core aeration, fertilizing, edging, and seasonal upkeep to keep your lawn healthy and looking its best from spring through fall."
-  price: "$75+/visit"
-  image: "/assets/da992e23-fc96-4640-89f0-dedd661acfa6.jpg"
-  category: "maintenance"
-  featured: true
+  description: "Keep your lawn healthy through the short northern BC growing season with regular mowing, aeration, and fertilization."
+  price: "From $75/visit"
+  category: "Lawn Care"
+  featured: false
+  image: "da992e23-fc96-4640-89f0-dedd661acfa6.jpg"
   features:
-    - "Weekly & bi-weekly mowing"
-    - "Core aeration for thicker growth"
-    - "Fertilizing & soil health programs"
-    - "Edging & trimming included"
-    - "Seasonal spring & fall upkeep"
-  specifications:
-    season: "May–October"
-    deliverables: "Maintained lawn"
-    turnaround: "Scheduled weekly or bi-weekly"
+    - "Weekly or bi-weekly mowing"
+    - "Core aeration for healthier roots"
+    - "Fertilization & weed control"
+    - "Seasonal spring/fall care"
+    - "Flexible scheduling"
 
-- id: "patio-hardscaping"
+- id: patio-hardscaping
   name: "Patio & Hardscaping"
-  description: "Paver & cobblestone patio installation, garden pathways, and stone features built with proper base preparation to handle Bulkley Valley freeze-thaw cycles."
+  description: "Paver, cobblestone, and stone patio installation built to last through Smithers winters — beautiful and durable."
   price: "Contact for quote"
-  image: "/assets/7efe9fb6-b906-4cd3-aaa3-6f5d2c5d459f.jpg"
-  category: "hardscaping"
+  category: "Hardscaping"
   featured: true
+  image: "7efe9fb6-b907-4be8-8017-d3e5b741a6b4.jpg"
   features:
-    - "Paver & cobblestone patio installation"
-    - "Garden pathway design & build"
-    - "Proper base preparation & drainage"
-    - "Retaining walls & stone borders"
-    - "Freeze-thaw resistant construction"
-  specifications:
-    season: "May–September"
-    deliverables: "Completed hardscape feature"
-    turnaround: "Quoted per project"
+    - "Design consultation & layout planning"
+    - "Base excavation & compaction"
+    - "Paver, stone & cobblestone installation"
+    - "Drainage consideration"
+    - "Finishing edging & sealing"
 
-- id: "plant-starts"
+- id: plant-starts
   name: "Plant Starts & Seedlings"
-  description: "Locally grown herb, vegetable, and ornamental starts — acclimated to the Bulkley Valley climate and ready for transplanting when the season opens. Custom orders welcome."
-  price: "$3–$15/start"
-  image: "/assets/104d8802-ae55-4c59-83e9-6a8a4e20c064.jpg"
-  category: "plants"
-  featured: false
-  features:
-    - "Herbs: basil, dill, cilantro, chives & more"
-    - "Vegetables: tomatoes, peppers, squash & more"
-    - "Ornamental annuals & perennials"
-    - "Custom seed-starting orders accepted"
-    - "Hardy varieties for Zone 3-4"
-  specifications:
-    season: "Available late May–early June"
-    deliverables: "Healthy transplant-ready starts"
-    turnaround: "Pre-order by March for custom varieties"
-
-- id: "yard-cleanup"
-  name: "Yard Cleanup & Debris Removal"
-  description: "Spring and fall cleanup packages including brush removal, leaf clearing, garden bed prep, and full debris hauling. Start or end the season with a clean property."
-  price: "$150+"
-  image: "/assets/c68acc1a-88f9-4a17-ae51-8a6adbb49e34.jpg"
-  category: "cleanup"
-  featured: false
-  features:
-    - "Spring & fall cleanup packages"
-    - "Brush & branch removal"
-    - "Leaf blowing & bagging"
-    - "Full debris hauling included"
-    - "Garden bed clearing & prep"
-  specifications:
-    season: "Spring (April–May) & Fall (Sept–Oct)"
-    deliverables: "Clean, debris-free property"
-    turnaround: "Book early — seasonal demand"
-
-- id: "commercial-landscaping"
-  name: "Commercial Landscaping"
-  description: "Professional commercial planter installation, property maintenance contracts, and seasonal changeovers for businesses in Smithers and surrounding communities."
-  price: "Contact for quote"
-  image: "/assets/03ed4bd0-09cf-484a-b671-3ea80d3e7556.jpg"
-  category: "commercial"
+  description: "Indoor-grown herb, vegetable, and ornamental starts hardened for the Bulkley Valley climate — available every spring and summer."
+  price: "From $3/start"
+  category: "Growing"
   featured: true
+  image: "104d8802-ae55-4c59-83e9-6a8a4e20c064.jpg"
   features:
-    - "Commercial planter design & installation"
+    - "Grown in Smithers under grow lights"
+    - "Herbs: basil, cilantro, dill & more"
+    - "Vegetables: tomatoes, peppers, greens"
+    - "Ornamentals & native species"
+    - "Custom orders available"
+
+- id: yard-cleanup
+  name: "Yard Cleanup & Debris Removal"
+  description: "Spring and fall yard cleanups including brush removal and debris hauling — get your property fresh and ready."
+  price: "From $150"
+  category: "Cleanup"
+  featured: false
+  image: "c68acc1a-88f9-4a17-ae51-8a6adbb49e34.jpg"
+  features:
+    - "Spring & fall seasonal cleanups"
+    - "Brush & branch removal"
+    - "Debris hauling with truck & trailer"
+    - "Post-winter property reset"
+    - "Same-week scheduling when available"
+
+- id: commercial-landscaping
+  name: "Commercial Landscaping"
+  description: "Professional landscaping and maintenance for commercial properties in Smithers and the Bulkley Valley."
+  price: "Contact for quote"
+  category: "Commercial"
+  featured: false
+  image: "d7761b7c-b907-4be8-8017-d3e5b741a6b4.jpg"
+  features:
+    - "Commercial planter installation & care"
+    - "Seasonal colour rotations"
     - "Ongoing maintenance contracts"
-    - "Seasonal planting & changeovers"
-    - "Multiple property management"
-    - "Professional, reliable scheduling"
-  specifications:
-    season: "Year-round contracts available"
-    deliverables: "Maintained commercial property"
-    turnaround: "Quote within 48 hours"
+    - "Parking lot & storefront landscaping"
+    - "Reliable, professional service"

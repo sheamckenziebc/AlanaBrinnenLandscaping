@@ -12,31 +12,31 @@ const base = import.meta.env.BASE_URL;
 
 const articles = [
   {
-    title: "[Blog post title — e.g. 'Choosing Plants That Survive Smithers Winters' or any topic you know well and your customers ask about]",
-    excerpt: "[2–3 sentence preview: what will readers learn? What question does this article answer for Bulkley Valley homeowners or gardeners? Write it like a helpful teaser.]",
-    date: "[Publication date, e.g. May 15, 2025]",
-    category: "[Category: Plant Selection | Seasonal Tips | Growing Tips | Hardscaping | Lawn Care]",
-    readTime: "[Estimated read time, e.g. 5 min read]",
-    image: "61724c2c-39b8-4710-9051-eac0244e211e.jpg",
-    imageAlt: "[Descriptive alt text for the article cover image]"
+    title: "Choosing Plants That Survive Smithers Winters",
+    excerpt: "Zone 3-4 gardening doesn't mean boring. We break down the best cold-hardy perennials, ornamental grasses, and flowering shrubs that thrive through Bulkley Valley winters — and look incredible doing it.",
+    date: "March 15, 2025",
+    category: "Plant Selection",
+    readTime: "6 min read",
+    image: "1fea5e40-0f0c-4c8d-990d-6d5ea95886df.jpg",
+    imageAlt: "Ground cover plants in a lush Smithers garden bed"
   },
   {
-    title: "[Second blog post title — a different topic or category from the first]",
-    excerpt: "[2–3 sentence article preview. Think about common questions you get from clients, seasonal advice, or things you wish more people knew about growing in northern BC.]",
-    date: "[Publication date]",
-    category: "[Category]",
-    readTime: "[Read time]",
+    title: "Spring Yard Cleanup: Your Bulkley Valley Checklist",
+    excerpt: "When the snow finally melts in Smithers, there's a short window to get your yard ready for the growing season. Here's our practical checklist for a thorough spring cleanup that sets your property up for success.",
+    date: "April 2, 2025",
+    category: "Seasonal Tips",
+    readTime: "5 min read",
     image: "c68acc1a-88f9-4a17-ae51-8a6adbb49e34.jpg",
-    imageAlt: "[Descriptive alt text for the article cover image]"
+    imageAlt: "Truck loaded with yard debris during spring cleanup"
   },
   {
-    title: "[Third blog post title]",
-    excerpt: "[2–3 sentence article preview. Could be about plant starts, patio care, fall prep, commercial landscaping — whatever you'd enjoy writing about and your audience would find useful.]",
-    date: "[Publication date]",
-    category: "[Category]",
-    readTime: "[Read time]",
+    title: "Why Local Plant Starts Beat Store-Bought Seedlings",
+    excerpt: "Those bright seedlings at the hardware store look tempting, but they're often grown in southern greenhouses and haven't been hardened for our climate. Here's why locally grown starts give you a real head start.",
+    date: "April 28, 2025",
+    category: "Growing Tips",
+    readTime: "4 min read",
     image: "104d8802-ae55-4c59-83e9-6a8a4e20c064.jpg",
-    imageAlt: "[Descriptive alt text for the article cover image]"
+    imageAlt: "Basil seedlings growing under grow lights in Smithers"
   }
 ];
 ---
@@ -48,35 +48,31 @@ const articles = [
   <Header slot="header" />
 
   <!-- PAGE HEADER BAND -->
-  <section class="py-16" style="background-color: #1a2d19;">
+  <section class="py-20" style="background-color: #1a2d19;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="text-sm font-semibold uppercase tracking-widest" style="color: #c8a96e;">Insights & Tips</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mt-2" style="font-family: 'Playfair Display', serif;">
-        The Metta Growing Blog
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 mb-4" style="font-family: 'Cormorant Garamond', Georgia, serif;">
+        Growing Knowledge
       </h1>
-      <div class="mt-4 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
-      <p class="text-green-200 mt-6 max-w-2xl text-lg">
-        Practical landscaping advice written for northern BC gardeners and property owners.
-      </p>
+      <p class="text-green-200 max-w-2xl text-lg">Tips, guides, and seasonal advice for Bulkley Valley gardeners</p>
+      <div class="mt-5 h-1 w-24 rounded" style="background-color: #c8a96e;"></div>
     </div>
   </section>
+
+  <!-- Wave divider: dark→white -->
+  <div style="background-color: #1a2d19;" class="-mb-1">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full block" preserveAspectRatio="none">
+      <path d="M0 60L80 48C160 36 320 12 480 6C640 0 800 12 960 18C1120 24 1280 24 1360 24L1440 24V60H1360C1280 60 1120 60 960 60C800 60 640 60 480 60C320 60 160 60 80 60H0Z" fill="white"/>
+    </svg>
+  </div>
 
   <!-- ARTICLES -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <!-- Category filter -->
-      <div class="flex flex-wrap justify-center gap-2 mb-12 animate-on-scroll">
-        <button class="px-4 py-2 text-sm font-semibold rounded-full text-white" style="background-color: #2d5a27;">All</button>
-        <button class="px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">Plant Selection</button>
-        <button class="px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">Seasonal Tips</button>
-        <button class="px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">Growing Tips</button>
-        <button class="px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">Hardscaping</button>
-      </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-children">
         {articles.map((article) => (
-          <article class="animate-on-scroll group bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 card-hover">
+          <article class="animate-on-scroll group bg-white rounded-3xl border border-green-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 card-hover">
             <div class="relative h-52 overflow-hidden">
               <img
                 src={`${base}assets/${article.image}`}
@@ -88,14 +84,14 @@ const articles = [
             </div>
             <div class="p-6">
               <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded" style="color: #2d5a27; background-color: #f5f0e6;">{article.category}</span>
+                <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full" style="color: #1a2d19; background-color: #c8a96e;">{article.category}</span>
                 <span class="text-xs text-gray-400">{article.readTime}</span>
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors" style="font-family: 'Playfair Display', serif;">{article.title}</h2>
+              <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors" style="font-family: 'Cormorant Garamond', Georgia, serif;">{article.title}</h2>
               <p class="text-gray-600 text-sm leading-relaxed mb-4">{article.excerpt}</p>
               <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                 <span class="text-xs text-gray-400">{article.date}</span>
-                <span class="text-sm font-semibold text-green-700 inline-flex items-center">
+                <span class="text-sm font-semibold text-green-700 inline-flex items-center group-hover:gap-2 transition-all">
                   Read More
                   <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </span>
@@ -106,7 +102,7 @@ const articles = [
       </div>
 
       <div class="text-center mt-12 animate-on-scroll">
-        <p class="text-gray-500">More articles coming throughout the season. Check back for new tips on landscaping in the Bulkley Valley.</p>
+        <p class="text-gray-500 text-lg">More articles coming throughout the season. Check back for new tips on landscaping in the Bulkley Valley.</p>
       </div>
     </div>
   </section>
@@ -114,20 +110,15 @@ const articles = [
   <!-- CTA section -->
   <section style="background-color: #f5f0e6;" class="py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
-      <div class="bg-white rounded-2xl border border-gray-200 p-8 md:p-12 shadow-sm">
-        <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-        </div>
-        <h2 class="text-2xl font-bold text-green-950 mb-2" style="font-family: 'Playfair Display', serif;">Have a Landscaping Question?</h2>
-        <p class="text-gray-600 mb-6">Whether you're planning a new project or troubleshooting your garden, Alana is happy to chat. Reach out any time.</p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={`${base}contact/`} class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white hover:bg-green-800 transition-colors" style="background-color: #2d5a27;">
-            Ask a Question
-          </a>
-          <a href={`${base}faq/`} class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold border-2 transition-colors" style="border-color: #2d5a27; color: #2d5a27;">
-            Browse FAQ
-          </a>
-        </div>
+      <h3 class="text-2xl font-bold text-green-950 mb-3">Have a gardening question?</h3>
+      <p class="text-gray-600 mb-8">Whether you're planning a new project or troubleshooting your garden, Alana is happy to chat. Reach out any time.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={`${base}contact/`} class="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5" style="background-color: #c8a96e; color: #1a2d19;">
+          Ask a Question
+        </a>
+        <a href={`${base}faq/`} class="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold border-2 transition-colors" style="border-color: #2d5a27; color: #2d5a27;">
+          Browse FAQ
+        </a>
       </div>
     </div>
   </section>
