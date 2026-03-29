@@ -48,11 +48,11 @@ jsonLdObj.telephone = config.contact.phone;
 jsonLdObj.email = config.contact.email;
 jsonLdObj.priceRange = "$$";
 const addr: Record<string, any> = {
-  streetAddress: "4821 Pearl St, Suite 200",
-  addressLocality: "Boulder",
-  addressRegion: "CO",
-  postalCode: "80301",
-  addressCountry: "US"
+  streetAddress: "",
+  addressLocality: "Smithers",
+  addressRegion: "BC",
+  postalCode: "V0J 2N0",
+  addressCountry: "CA"
 };
 addr["@type"] = "PostalAddress";
 jsonLdObj.address = addr;
@@ -63,10 +63,9 @@ const geo: Record<string, any> = {
 geo["@type"] = "GeoCoordinates";
 jsonLdObj.geo = geo;
 jsonLdObj.openingHoursSpecification = [
-  { dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "07:00", closes: "18:00" },
-  { dayOfWeek: ["Saturday"], opens: "08:00", closes: "14:00" }
+  { dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "08:00", closes: "18:00" }
 ].map(spec => { const s: Record<string, any> = { ...spec }; s["@type"] = "OpeningHoursSpecification"; return s; });
-jsonLdObj.areaServed = { name: "Denver Metropolitan Area, Colorado" };
+jsonLdObj.areaServed = { name: "Bulkley Valley, British Columbia" };
 jsonLdObj.areaServed["@type"] = "GeoCircle";
 jsonLdObj.sameAs = sameAsList;
 const jsonLd = JSON.stringify(jsonLdObj);
@@ -144,7 +143,7 @@ const jsonLd = JSON.stringify(jsonLdObj);
       position: absolute;
       top: -40px;
       left: 6px;
-      background: #1e3a5f;
+      background: #2d5a27;
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;

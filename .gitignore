@@ -26,3 +26,9 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local template copy
+_template/
+
+# Local template copy
+_template/

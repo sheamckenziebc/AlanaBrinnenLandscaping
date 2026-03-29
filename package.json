@@ -1,7 +1,7 @@
 {
-  "name": "ai-jamstack-template",
+  "name": "alana-brinnen-landscaping",
   "version": "1.0.0",
-  "description": "Next-generation GitHub Pages template for AI-driven static site generation",
+  "description": "Metta Growing — landscaping site (AlanaBrinnen_Landscaping) for GitHub Pages",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -35,6 +35,6 @@
     "performance",
     "seo"
   ],
-  "author": "AI Jamstack Template",
+  "author": "AlanaBrinnen_Landscaping",
   "license": "MIT"
 }

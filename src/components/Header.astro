@@ -60,7 +60,7 @@ const currentPath = Astro.url.pathname;
           />
           <div class="flex flex-col">
             <span class="text-lg font-extrabold text-gray-900 leading-tight">{config.site.title}</span>
-            <span class="text-[10px] text-gray-500 font-medium uppercase tracking-widest hidden sm:block">General Contractor</span>
+            <span class="text-[10px] text-gray-500 font-medium uppercase tracking-widest hidden sm:block">Landscaping & Growing</span>
           </div>
         </a>
       </div>
@@ -114,12 +114,12 @@ const currentPath = Astro.url.pathname;
           )}
           <li role="none">
             <a
-              href={`${base}templates/`}
-              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/templates') ? 'text-blue-700 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+              href={`${base}gallery/`}
+              class={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${currentPath.includes('/gallery') ? 'text-blue-700 bg-blue-50' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
               role="menuitem"
-              aria-current={currentPath.includes('/templates') ? 'page' : undefined}
+              aria-current={currentPath.includes('/gallery') ? 'page' : undefined}
             >
-              Templates
+              Gallery
             </a>
           </li>
           <li role="none">
@@ -201,11 +201,11 @@ const currentPath = Astro.url.pathname;
           </a>
         )}
         <a
-          href={`${base}templates/`}
-          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/templates') ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
-          aria-current={currentPath.includes('/templates') ? 'page' : undefined}
+          href={`${base}gallery/`}
+          class={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${currentPath.includes('/gallery') ? 'text-blue-700 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'}`}
+          aria-current={currentPath.includes('/gallery') ? 'page' : undefined}
         >
-          Templates
+          Gallery
         </a>
         <a
           href={`${base}contact/`}
