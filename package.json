@@ -1,7 +1,7 @@
 {
   "name": "alana-brinnen-landscaping",
   "version": "1.0.0",
-  "description": "Metta Growing — landscaping site (AlanaBrinnen_Landscaping) for GitHub Pages",
+  "description": "Metta Growing — landscaping site (AlanaBrinnenLandscaping) for GitHub Pages",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -35,6 +35,6 @@
     "performance",
     "seo"
   ],
-  "author": "AlanaBrinnen_Landscaping",
+  "author": "AlanaBrinnenLandscaping",
   "license": "MIT"
 }

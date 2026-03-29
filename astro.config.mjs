@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://sheamckenziebc.github.io',
-  base: '/AlanaBrinnen_Landscaping',
+  base: '/AlanaBrinnenLandscaping',
   trailingSlash: 'always',
   integrations: [
     tailwind({
