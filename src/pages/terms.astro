@@ -11,28 +11,38 @@ const config = yaml.load(readFileSync(configPath, 'utf8'));
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title={`Terms of Service | ${config.site.title}`} description={`Terms of service for ${config.site.title}. Read our terms and conditions for using our website and services.`}>
+<BaseLayout
+  title={`Terms of Service | ${config.site.title}`}
+  description={`Terms of service for ${config.site.title}. Read our terms and conditions for using our website and landscaping services.`}
+>
   <Header slot="header" />
 
-  <section class="py-16 bg-gray-50">
+  <!-- PAGE HEADER BAND -->
+  <section class="py-12" style="background-color: #1a2d19;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">Terms of Service</h1>
+      <div class="mt-3 h-1 w-16 rounded" style="background-color: #c8a96e;"></div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Terms of Service</h1>
       <p class="text-gray-500 mb-12">Last updated: January 1, 2025</p>
 
       <div class="prose prose-lg prose-gray max-w-none">
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Acceptance of Terms</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          By accessing and using the {config.site.title} website, you accept and agree to be bound by these terms of service. If you do not agree to these terms, please do not use our website.
+          By accessing and using the Metta Growing website, you accept and agree to be bound by these terms of service. If you do not agree to these terms, please do not use our website.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Services</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          {config.site.title} provides general contracting and home renovation services in the Denver metropolitan area. All services are subject to a separate written contract that outlines scope, pricing, timelines, and warranty terms specific to your project.
+          Metta Growing provides residential and commercial landscaping services in Smithers, British Columbia and surrounding communities in the Bulkley Valley. All services are subject to a separate written agreement or quote that outlines scope, pricing, timelines, and any warranty terms specific to your project.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Estimates & Pricing</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          Estimates provided through this website or during consultations are preliminary and subject to change upon detailed assessment. Final pricing is established in a written contract before work begins. All prices are in US dollars and do not include applicable taxes or permit fees unless explicitly stated.
+          Estimates provided through this website, by phone, or during consultations are preliminary and subject to change upon detailed assessment. Final pricing is established in a written quote or agreement before work begins. All prices are in Canadian dollars and do not include applicable taxes unless explicitly stated.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Website Content</h2>
@@ -42,12 +52,12 @@ const base = import.meta.env.BASE_URL;
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Intellectual Property</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          All content on this website, including text, images, logos, and design elements, is the property of {config.site.title} and is protected by applicable copyright and trademark laws. You may not reproduce, distribute, or create derivative works from this content without our written permission.
+          All content on this website, including text, images, logos, and design elements, is the property of Metta Growing and is protected by applicable copyright and trademark laws. You may not reproduce, distribute, or create derivative works from this content without our written permission.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Limitation of Liability</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          {config.site.title} shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this website. Our total liability for any claim related to this website shall not exceed the amount you paid for services through this site, if any.
+          Metta Growing shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this website. Our total liability for any claim related to this website shall not exceed the amount you paid for services through this site, if any.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Third-Party Links</h2>
@@ -57,7 +67,7 @@ const base = import.meta.env.BASE_URL;
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Governing Law</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
-          These terms shall be governed by and construed in accordance with the laws of the State of Colorado. Any disputes arising from these terms shall be resolved in the courts of Denver County, Colorado.
+          These terms shall be governed by and construed in accordance with the laws of the Province of British Columbia, Canada. Any disputes arising from these terms shall be resolved in the courts of British Columbia.
         </p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Changes to Terms</h2>
@@ -68,10 +78,10 @@ const base = import.meta.env.BASE_URL;
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Contact Us</h2>
         <p class="text-gray-600 leading-relaxed">
           If you have questions about these terms, please contact us at:<br />
-          <strong>{config.site.title}</strong><br />
-          {config.contact.address}<br />
-          <a href={`mailto:${config.contact.email}`} class="text-blue-600 hover:text-blue-700">{config.contact.email}</a><br />
-          <a href={`tel:${config.contact.phone}`} class="text-blue-600 hover:text-blue-700">{config.contact.phone}</a>
+          <strong>Metta Growing</strong><br />
+          Smithers, British Columbia, Canada<br />
+          <a href={`mailto:${config.contact.email}`} class="text-green-700 hover:text-green-800">{config.contact.email}</a><br />
+          <a href={`tel:${config.contact.phone}`} class="text-green-700 hover:text-green-800">{config.contact.phone}</a>
         </p>
       </div>
     </div>
