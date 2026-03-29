@@ -59,8 +59,8 @@ const base = import.meta.env.BASE_URL;
         <div class="lg:col-span-2 hidden lg:grid grid-cols-2 gap-4">
           {[
             { label: "Location", value: "Smithers, BC" },
-            { label: "Experience", value: "5+ Years" },
-            { label: "Projects Done", value: "100+" },
+            { label: "Experience", value: "[X+ Years]" },
+            { label: "Projects Done", value: "[X+ Done]" },
             { label: "Service Area", value: "Bulkley Valley" },
           ].map((stat) => (
             <div class="backdrop-blur-sm bg-black/40 border border-white/10 rounded-xl p-5 text-center">
@@ -74,8 +74,8 @@ const base = import.meta.env.BASE_URL;
       <div class="lg:hidden mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: "Location", value: "Smithers, BC" },
-          { label: "Experience", value: "5+ Years" },
-          { label: "Projects Done", value: "100+" },
+          { label: "Experience", value: "[X+ Years]" },
+          { label: "Projects Done", value: "[X+ Done]" },
           { label: "Service Area", value: "Bulkley Valley" },
         ].map((stat) => (
           <div class="backdrop-blur-sm bg-black/40 border border-white/10 rounded-xl p-4 text-center">
@@ -263,7 +263,7 @@ const base = import.meta.env.BASE_URL;
               loading="lazy"
             />
             <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-lg p-5 border border-gray-100">
-              <div class="text-3xl font-bold text-green-700" style="font-family: 'Playfair Display', serif;">5+</div>
+              <div class="text-3xl font-bold text-green-700" style="font-family: 'Playfair Display', serif;">[X+]</div>
               <div class="text-sm text-gray-600 mt-1">Years Growing<br/>the Valley</div>
             </div>
           </div>
@@ -275,10 +275,10 @@ const base = import.meta.env.BASE_URL;
             Rooted in Smithers,<br/>Growing with You
           </h2>
           <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Metta Growing was born from a deep love of this land. Owner Alana Brinnen grew up surrounded by the wild beauty of the Bulkley Valley, and after years of honing her craft, she set out to bring that same natural vitality into the yards and gardens of her neighbours.
+            [2–3 sentences: how Metta Growing started and what drew Alana to landscaping. When did she start the business? What was the spark? Keep it personal and in your own voice.]
           </p>
           <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Every project we take on is personal. Whether it's a backyard patio for family gatherings, a fresh garden bed, or a carefully tended commercial planter in downtown Smithers — we bring the same hands-on care and local knowledge to every job.
+            [1–2 sentences: what makes your approach personal or different. What do you care most about when you take on a project? What do clients say they notice about working with you?]
           </p>
           <p class="text-lg text-gray-700 leading-relaxed mb-8">
             We know what plants survive a Bulkley Valley winter. We know the soil. We know the seasons. That's the Metta Growing difference.
@@ -348,21 +348,21 @@ const base = import.meta.env.BASE_URL;
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
         {[
           {
-            name: "Sandra M.",
-            location: "Smithers, BC",
-            text: "Alana completely transformed our backyard. The patio she installed is absolutely stunning — the cobblestone work is professional grade and it holds up beautifully through our winters. She was easy to work with, on schedule, and genuinely cared about the result.",
+            name: "[Client first name + last initial, e.g. Sandra M.]",
+            location: "[City, BC — e.g. Smithers, BC]",
+            text: "[Paste a real 5-star review from a happy client. Ask past customers to share their experience — patio work, garden beds, cleanup, or lawn care all make great testimonials. Use their actual words.]",
             stars: 5
           },
           {
-            name: "Dave & Karen T.",
-            location: "Telkwa, BC",
-            text: "We hired Metta Growing for a spring cleanup and garden bed installation. They showed up exactly when promised, did meticulous work, and suggested plants we'd never heard of that are perfect for our zone. Will absolutely be calling again this fall.",
+            name: "[Client first name + last initial]",
+            location: "[City, BC]",
+            text: "[Second real client testimonial. Ideally from a different service type or a different community in your service area for variety.]",
             stars: 5
           },
           {
-            name: "Tom B.",
-            location: "Houston, BC",
-            text: "I ordered basil and tomato starts from Alana this spring and they were the healthiest seedlings I've ever planted. Strong root systems, no transplant shock, and they produced all season. Already pre-ordered for next year.",
+            name: "[Client first name + last initial]",
+            location: "[City, BC]",
+            text: "[Third real client testimonial. Aim for range — e.g. one residential, one commercial, or one about plant starts vs. hardscaping.]",
             stars: 5
           },
         ].map((review) => (
