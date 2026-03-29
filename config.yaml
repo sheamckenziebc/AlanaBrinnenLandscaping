@@ -12,7 +12,7 @@ branding:
   primaryColor: "#2d5a27"
   secondaryColor: "#4a7c40"
   accentColor: "#c8a96e"
-  fontFamily: "Inter, system-ui, sans-serif"
+  fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif"
 
 contact:
   email: "Mettagrowing@pm.me"
