@@ -59,27 +59,21 @@ const aboutJsonLd = JSON.stringify(aboutObj);
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mt-2 mb-6" style="font-family: 'Cormorant Garamond', Georgia, serif;">
             Grown from a Passion for the Land
           </h2>
-          <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Metta Growing is Alana Brinnen's hands-on landscaping practice in Smithers, BC. Rooted in a deep love for the land and a genuine connection to the Bulkley Valley, Alana founded Metta Growing to bring real, lasting beauty to the outdoor spaces of her community.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Every project reflects the same personal commitment: listen carefully, work with care, and never leave until the space is something the client is genuinely proud of. Whether it's a new garden bed, a cobblestone patio, or a flat of freshly grown herb starts, the same hands-on attention guides every job.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed mb-8">
-            The name "Metta" comes from a word meaning loving-kindness — a quality that shows in how Alana approaches both her clients and the natural world. She believes that caring for a landscape is an act of care for the community itself.
-          </p>
+          <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Share your origin story. When did you start Metta Growing? What inspired you?</span>
+          <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — What do you love most about working in Smithers and the Bulkley Valley?</span>
+          <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Anything else you'd like clients to know about you personally or professionally?</span>
 
           <!-- Quote block -->
           <blockquote class="border-l-4 pl-6 py-2 my-8 italic text-xl text-green-800" style="border-color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">
-            "Every yard has potential. My job is to help you see it."
-            <footer class="mt-2 text-sm font-semibold not-italic text-green-700" style="font-family: 'DM Sans', sans-serif;">— Alana Brinnen, Founder</footer>
+            <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Share a personal quote about your work or your philosophy (e.g. "Every yard has potential...")</span>
+            <footer class="mt-2 text-sm font-semibold not-italic text-green-700" style="font-family: 'DM Sans', sans-serif;">✏️ — Alana Brinnen, Metta Growing</footer>
           </blockquote>
 
           <!-- Stats row -->
           <div class="grid grid-cols-3 gap-4 mt-8">
             {[
-              { value: "5+", label: "Years in Business" },
-              { value: "100+", label: "Projects Completed" },
+              { value: "✏️", label: "✏️ years in business" },
+              { value: "✏️", label: "✏️ approx. # of projects" },
               { value: "6", label: "Communities Served" },
             ].map(stat => (
               <div class="text-center p-5 rounded-3xl border border-green-100" style="background-color: #f5f0e6;">
@@ -123,33 +117,36 @@ const aboutJsonLd = JSON.stringify(aboutObj);
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
-        {[
-          {
-            icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
-            title: "Rooted Locally",
-            desc: "Every decision Metta Growing makes is filtered through one question: what's right for this community and this landscape? We're not a franchise — we're your neighbour, and this valley is our home."
-          },
-          {
-            icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
-            title: "Grown with Care",
-            desc: "Whether it's a seeding tray or a 500 sq ft patio, every project gets Alana's full attention and genuine pride in the result. We work sustainably, using plants suited to local conditions."
-          },
-          {
-            icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-            title: "Built to Last",
-            desc: "Quality materials, proper prep work, and honest advice — because a landscape should look better every year, not worse. We do it right the first time so you don't have to call us back."
-          },
-        ].map((val) => (
-          <div class="animate-on-scroll card-hover bg-white rounded-3xl shadow-sm border border-green-100 p-8">
-            <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center mb-6 card-icon">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={val.icon}/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-green-900 mb-3">{val.title}</h3>
-            <p class="text-gray-600 leading-relaxed">{val.desc}</p>
+        <!-- Card 1: Rooted Locally -->
+        <div class="animate-on-scroll card-hover bg-white rounded-3xl shadow-sm border border-green-100 p-8">
+          <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center mb-6 card-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
           </div>
-        ))}
+          <h3 class="text-xl font-bold text-green-900 mb-3">Rooted Locally</h3>
+          <p class="text-gray-600 leading-relaxed"><span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Why does being locally owned matter to you? What does it mean for how you work?</span></p>
+        </div>
+        <!-- Card 2: Grown with Care -->
+        <div class="animate-on-scroll card-hover bg-white rounded-3xl shadow-sm border border-green-100 p-8">
+          <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center mb-6 card-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-green-900 mb-3">Grown with Care</h3>
+          <p class="text-gray-600 leading-relaxed"><span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — How do you ensure quality on every job, big or small?</span></p>
+        </div>
+        <!-- Card 3: Built to Last -->
+        <div class="animate-on-scroll card-hover bg-white rounded-3xl shadow-sm border border-green-100 p-8">
+          <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center mb-6 card-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-green-900 mb-3">Built to Last</h3>
+          <p class="text-gray-600 leading-relaxed"><span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — What does quality and longevity mean to you in your work?</span></p>
+        </div>
       </div>
     </div>
   </section>

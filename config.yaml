@@ -28,7 +28,7 @@ social:
   youtube: ""
 
 features:
-  blog: true
+  blog: false
   products: true
   testimonials: true
   faq: true

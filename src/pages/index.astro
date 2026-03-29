@@ -35,9 +35,7 @@ const base = import.meta.env.BASE_URL;
           <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6" style="font-family: 'Cormorant Garamond', Georgia, serif;">
             Growing Beautiful Spaces in the Bulkley Valley
           </h1>
-          <p class="text-lg md:text-xl text-green-100 leading-relaxed mb-8" style="font-family: 'DM Sans', sans-serif;">
-            Metta Growing brings passionate, hands-on landscaping to Smithers and surrounding communities. From lush garden installations to striking patios, we transform outdoor spaces with care rooted in this land.
-          </p>
+          <span class="block italic text-green-200 text-sm border border-dashed border-white/30 rounded-xl px-4 py-3 my-2">✏️ Alana — Write 2–3 sentences describing what makes Metta Growing special. What do you want customers to know about you right away?</span>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href={`${base}contact/`}
@@ -60,8 +58,8 @@ const base = import.meta.env.BASE_URL;
         <div class="lg:col-span-2 hidden lg:grid grid-cols-2 gap-4">
           {[
             { label: "Location", value: "Smithers, BC" },
-            { label: "Experience", value: "5+ Years" },
-            { label: "Projects Done", value: "100+" },
+            { label: "Experience", value: "✏️ [How many years?]" },
+            { label: "Projects Done", value: "✏️ [Approx. # projects]" },
             { label: "Service Area", value: "Bulkley Valley" },
           ].map((stat) => (
             <div class="backdrop-blur-sm rounded-3xl p-6 text-center border" style="background-color: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);">
@@ -75,8 +73,8 @@ const base = import.meta.env.BASE_URL;
       <div class="lg:hidden mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: "Location", value: "Smithers, BC" },
-          { label: "Experience", value: "5+ Years" },
-          { label: "Projects Done", value: "100+" },
+          { label: "Experience", value: "✏️ [How many years?]" },
+          { label: "Projects Done", value: "✏️ [Approx. # projects]" },
           { label: "Service Area", value: "Bulkley Valley" },
         ].map((stat) => (
           <div class="backdrop-blur-sm rounded-3xl p-4 text-center border" style="background-color: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);">
@@ -172,13 +170,11 @@ const base = import.meta.env.BASE_URL;
             <h3 class="text-xl font-bold text-green-900 mb-3">Patio & Hardscaping</h3>
             <p class="text-gray-600 mb-5 leading-relaxed text-sm">Stunning paver patios, garden pathways, and stone features built to last through Bulkley Valley winters.</p>
             <ul class="space-y-2 mb-6">
-              {["Design & layout planning","Base excavation & prep","Paver/stone installation","Finishing & edging","Starting at contact for quote"].map(item => (
-                <li class="flex items-center gap-2 text-sm text-gray-700">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                  {item}
-                </li>
-              ))}
+              <li class="text-sm text-gray-700">
+                <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — List 4–5 things included in a patio job</span>
+              </li>
             </ul>
+            <p class="text-sm text-gray-500 mb-4"><span class="italic text-gray-400">✏️ Alana — What's your starting price for patio work, or do you prefer "contact for quote"?</span></p>
             <a href={`${base}services/`} class="inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors text-sm">
               Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
@@ -201,13 +197,11 @@ const base = import.meta.env.BASE_URL;
             <h3 class="text-xl font-bold text-green-900 mb-3">Landscape Installation</h3>
             <p class="text-gray-600 mb-5 leading-relaxed text-sm">Custom garden beds, soil prep, and beautiful plantings chosen to thrive in our northern BC climate.</p>
             <ul class="space-y-2 mb-6">
-              {["Custom plant selection","Soil prep & amendment","Mulching & edging","Seasonal planting","From $500"].map(item => (
-                <li class="flex items-center gap-2 text-sm text-gray-700">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                  {item}
-                </li>
-              ))}
+              <li class="text-sm text-gray-700">
+                <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — List 4–5 things included in a landscape installation job</span>
+              </li>
             </ul>
+            <p class="text-sm text-gray-500 mb-4"><span class="italic text-gray-400">✏️ Alana — What's your starting price for landscape installation?</span></p>
             <a href={`${base}services/`} class="inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors text-sm">
               Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
@@ -230,13 +224,11 @@ const base = import.meta.env.BASE_URL;
             <h3 class="text-xl font-bold text-green-900 mb-3">Plant Starts & Seedlings</h3>
             <p class="text-gray-600 mb-5 leading-relaxed text-sm">Indoor-grown starts for herbs, vegetables, and ornamentals — hardened off for northern BC's short growing season.</p>
             <ul class="space-y-2 mb-6">
-              {["Indoor grown in Smithers","Herbs, vegetables, ornamentals","Hardy northern varieties","Available spring & summer","From $3/start"].map(item => (
-                <li class="flex items-center gap-2 text-sm text-gray-700">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                  {item}
-                </li>
-              ))}
+              <li class="text-sm text-gray-700">
+                <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — List 4–5 things included / varieties available for plant starts</span>
+              </li>
             </ul>
+            <p class="text-sm text-gray-500 mb-4"><span class="italic text-gray-400">✏️ Alana — Price per start or per flat?</span></p>
             <a href={`${base}services/`} class="inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors text-sm">
               Learn More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
@@ -274,12 +266,8 @@ const base = import.meta.env.BASE_URL;
           <h2 class="text-4xl md:text-5xl font-bold text-green-950 mt-2 mb-6" style="font-family: 'Cormorant Garamond', Georgia, serif;">
             Rooted in Smithers,<br/>Growing with You
           </h2>
-          <p class="text-lg text-gray-700 leading-relaxed mb-5">
-            Metta Growing is Alana Brinnen's hands-on landscaping practice in Smithers, BC. After years of working the land and nurturing her own green spaces, Alana turned her passion into a full-service landscaping company dedicated to the Bulkley Valley community.
-          </p>
-          <p class="text-lg text-gray-700 leading-relaxed mb-8">
-            Every project — whether it's a new garden bed, a stone patio, or a tray of custom herb starts — gets the same care and attention. Metta Growing is small by design, allowing Alana to bring her expertise and personal touch to every client relationship.
-          </p>
+          <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Tell your story here. How did Metta Growing start? What drives your passion for landscaping?</span>
+          <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — What makes your approach different from other landscapers in the area?</span>
           <a
             href={`${base}about/`}
             class="inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors text-lg"
@@ -323,20 +311,34 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
-        {[
-          { step: "01", title: "Free Consultation", desc: "We visit your property, understand your vision, and discuss options. No pressure, just good conversation." },
-          { step: "02", title: "We Plan Together", desc: "You receive a clear proposal with scope, timeline, and transparent pricing. No hidden fees." },
-          { step: "03", title: "We Do the Work", desc: "Alana and her team arrive on schedule and work with care. Clean, professional, detail-oriented." },
-          { step: "04", title: "You Enjoy the Results", desc: "We do a final walkthrough together. Not done until you love it." },
-        ].map((item) => (
-          <div class="animate-on-scroll text-center">
-            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2" style="background-color: rgba(200,169,110,0.15); border-color: #c8a96e;">
-              <span class="text-xl font-bold" style="color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">{item.step}</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">{item.title}</h3>
-            <p class="text-green-300 leading-relaxed text-sm">{item.desc}</p>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2" style="background-color: rgba(200,169,110,0.15); border-color: #c8a96e;">
+            <span class="text-xl font-bold" style="color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">01</span>
           </div>
-        ))}
+          <h3 class="text-xl font-bold text-white mb-3">Free Consultation</h3>
+          <p class="text-green-300 leading-relaxed text-sm"><span class="block italic text-green-300 text-sm border border-dashed border-white/30 rounded-xl px-4 py-3 my-2">✏️ Alana — Describe how your consultations work. Do you visit in person? Is there a cost?</span></p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2" style="background-color: rgba(200,169,110,0.15); border-color: #c8a96e;">
+            <span class="text-xl font-bold" style="color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">02</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">We Plan Together</h3>
+          <p class="text-green-300 leading-relaxed text-sm"><span class="block italic text-green-300 text-sm border border-dashed border-white/30 rounded-xl px-4 py-3 my-2">✏️ Alana — How do you provide quotes? How long does it take?</span></p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2" style="background-color: rgba(200,169,110,0.15); border-color: #c8a96e;">
+            <span class="text-xl font-bold" style="color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">03</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">We Do the Work</h3>
+          <p class="text-green-300 leading-relaxed text-sm"><span class="block italic text-green-300 text-sm border border-dashed border-white/30 rounded-xl px-4 py-3 my-2">✏️ Alana — What should clients expect during the work? Any details about your process?</span></p>
+        </div>
+        <div class="animate-on-scroll text-center">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border-2" style="background-color: rgba(200,169,110,0.15); border-color: #c8a96e;">
+            <span class="text-xl font-bold" style="color: #c8a96e; font-family: 'Cormorant Garamond', Georgia, serif;">04</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">You Enjoy the Results</h3>
+          <p class="text-green-300 leading-relaxed text-sm"><span class="block italic text-green-300 text-sm border border-dashed border-white/30 rounded-xl px-4 py-3 my-2">✏️ Alana — How do you wrap up a job? Do you do a walkthrough? Any guarantee?</span></p>
+        </div>
       </div>
 
       <div class="text-center mt-14 animate-on-scroll">
@@ -369,47 +371,74 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
-        {[
-          {
-            name: "Sarah K.",
-            location: "Smithers, BC",
-            service: "Landscape Installation",
-            text: "Alana transformed our overgrown backyard into something we're actually proud of. She was professional, on time, and the results speak for themselves. Highly recommend Metta Growing.",
-            stars: 5
-          },
-          {
-            name: "Mike & Janet T.",
-            location: "Telkwa, BC",
-            service: "Patio Installation",
-            text: "We had Alana install a paved patio and it exceeded our expectations. The attention to detail was incredible, and she was so easy to work with throughout the whole process.",
-            stars: 5
-          },
-          {
-            name: "The Hendersons",
-            location: "Houston, BC",
-            service: "Plant Starts",
-            text: "Alana's plant starts are the best we've found in the Valley. Fresh, healthy, and she always has interesting varieties. We buy from her every spring without fail.",
-            stars: 5
-          },
-        ].map((review) => (
-          <div class="animate-on-scroll card-hover rounded-3xl border border-green-100 p-8" style="background-color: #f5f0e6;">
-            <div class="flex gap-1 mb-4">
-              {Array(review.stars).fill(null).map(() => (
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
+        <!-- Testimonial 1 -->
+        <div class="animate-on-scroll card-hover rounded-3xl border border-green-100 p-8" style="background-color: #f5f0e6;">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+            <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Paste a real client review here (Google, word-of-mouth, text message, etc.)</span>
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">?</span>
             </div>
-            <blockquote class="text-gray-700 leading-relaxed mb-6 italic">"{review.text}"</blockquote>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
-                <span class="text-white font-bold text-sm">{review.name.charAt(0)}</span>
-              </div>
-              <div>
-                <div class="font-semibold text-gray-900">{review.name}</div>
-                <div class="text-sm text-gray-500">{review.location} — {review.service}</div>
-              </div>
+            <div>
+              <div class="font-semibold text-gray-900"><span class="italic text-gray-400 text-sm">✏️ Client Name</span></div>
+              <div class="text-sm text-gray-500"><span class="italic text-gray-400 text-sm">✏️ Service type (e.g. "Patio Installation, Smithers")</span></div>
             </div>
           </div>
-        ))}
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="animate-on-scroll card-hover rounded-3xl border border-green-100 p-8" style="background-color: #f5f0e6;">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+            <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Paste a real client review here (Google, word-of-mouth, text message, etc.)</span>
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">?</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900"><span class="italic text-gray-400 text-sm">✏️ Client Name</span></div>
+              <div class="text-sm text-gray-500"><span class="italic text-gray-400 text-sm">✏️ Service type (e.g. "Patio Installation, Smithers")</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="animate-on-scroll card-hover rounded-3xl border border-green-100 p-8" style="background-color: #f5f0e6;">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="color: #c8a96e;"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <blockquote class="text-gray-700 leading-relaxed mb-6 italic">
+            <span class="block italic text-gray-400 text-sm border border-dashed border-gray-300 rounded-xl px-4 py-3 my-2">✏️ Alana — Paste a real client review here (Google, word-of-mouth, text message, etc.)</span>
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-sm">?</span>
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900"><span class="italic text-gray-400 text-sm">✏️ Client Name</span></div>
+              <div class="text-sm text-gray-500"><span class="italic text-gray-400 text-sm">✏️ Service type (e.g. "Patio Installation, Smithers")</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
